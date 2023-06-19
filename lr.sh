@@ -17,10 +17,11 @@ echo "Compiling $inputFile..."
 eval "$compilerCommand"
 
 # Check if the compilation was successful
+# bad practice apparently?
 if [ $? -eq 0 ]; then
     echo "Compilation successful. Output file: $outputFile"
     echo "Debugging $outputFile..."
-    if [ $2 -eq "-r" ]; then
+    if [ $2 = "-r" ]; then
         echo ""
         eval "gdb $outputFile"
     fi

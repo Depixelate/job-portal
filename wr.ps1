@@ -12,12 +12,12 @@ $compilerOptions = "-lm -Wall -Wextra -pedantic -std=c99 -O2 -Wshadow -Wformat=2
 $compiler = "gcc"
 
 # Show options to the user
-Write-Host "Compiling with these options: $compilerOptions"
+Write-Output "Compiling with these options: $compilerOptions"
 # Execute the compiler command
 $inputFiles = ForEach-Object -InputObject $Path {Get-ChildItem -Path $_}
 
 foreach($file in $inputFiles) {
-    Write-Host "Compiling $file..."
+    Write-Output "Compiling $file..."
 
     # Set the name of the output file to be the same as the input file, but with the extension changed to "exe"
     $outputFile = [IO.Path]::ChangeExtension($file, "exe")
@@ -30,13 +30,13 @@ foreach($file in $inputFiles) {
 
     # Check the result of the compilation, and inform the user accordingly
     if ($LASTEXITCODE -eq 0) {
-        Write-Host "Compilation Successful.`n`nOutput File: $outputFile"
+        Write-Output "Compilation Successful.`n`nOutput File: $outputFile"
         if ($r) {
-            Write-Host "Running Exec...`n"
+            Write-Output "Running Exec...`n"
             Invoke-Expression "gdb $outputFile"
-            Write-Host "`nFinished Running!"
+            Write-Output "`nFinished Running!"
         }
     } else {
-        Write-Host "`nCompilation failed with error code: $LASTEXITCODE`n"
+        Write-Output "`nCompilation failed with error code: $LASTEXITCODE`n"
     }
 }
