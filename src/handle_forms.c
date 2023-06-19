@@ -16,6 +16,11 @@ void read_index(char *file_name, char buf[][MAX_LENGTH], int *num_lines) {
     
     // Read lines from the file and store them in the array
     while (fgets(buf[*num_lines], MAX_LENGTH, file) != NULL) {
+		char *line = buf[*num_lines];
+		int len = strlen(line);
+		if(line[len-1] == '\n') {
+			line[len-1] = '\0';
+		}
         (*num_lines)++;
     }
     
@@ -32,9 +37,9 @@ void read_index_test() {
 	}
 }
 
-void main() {
-	read_index_test();
-}
+// void main() {
+// 	read_index_test();
+// }
 
 void read(const char *path, char *file_buf) {
 	FILE *fp = fopen(path, "r");
@@ -71,37 +76,40 @@ void main() {
 */
 
 
-// void get_good_form_name(char *path, char good_form_name[]){
-// 	char *str;
-// 	char form_names[100][100];
-// 	int num_forms = read_index(path, form_names);
-// 	char form_name[100];
-// 	while (true) {
-// 		bool is_valid_name = true;
-// 		printf("Enter your form's name: ");
-// 		fgets(form_name, 100, stdin);
+void get_good_form_name(char *path, char good_form_name[]){
+	char form_names[MAX_LINES][MAX_LENGTH];
+	int num_forms;
+	read_index(path, form_names, &num_forms);
+	char form_name[MAX_LENGTH];
+	while (true) {
+		bool is_valid_name = true;
+		printf("Enter your form's name: ");
+		fgets(form_name, MAX_LENGTH, stdin);
+		form_name[strlen(form_name)-1] = '\0';
 				
-// 		for(int i = 0; i < num_forms; i++) {
-// 			if(strcmp(form_name, form_names[i]) == 0) {
-// 				printf("Invalid form name! Try again!\n");
-//                                 is_valid_name = false;
-// 				break;
-// 			} 
-// 		}
-// 		if(!is_valid_name) {
-// 			break;
-// 		}
-// 	}
-// 	strcpy(good_form_name, form_name);
-// }
+		for(int i = 0; i < num_forms; i++) {
+			if(strcmp(form_name, form_names[i]) == 0) {
+				printf("Invalid form name! Try again!\n");
+                is_valid_name = false;
+				break;
+			} 
+		}
+		if(is_valid_name) {
+			break;
+		}
+	}
+	strcpy(good_form_name, form_name);
+}
 
-// void get_good_form_name_test() {
-// 	char buf[100];
-// 	get_good_form_name("Applicants/index.txt", buf);
-// 	printf("%s\n", buf);
-// 	get_good_form_name("Job Openings/index.txt", buf);
-// 	printf("%s\n", buf);
-// }
+void get_good_form_name_test() {
+	char buf[100];
+	printf("Application\n");
+	get_good_form_name("Example/Applicants/index.txt", buf);
+	printf("%s\n", buf);
+	printf("Opening\n");
+	get_good_form_name("Example/Job Openings/index.txt", buf);
+	printf("%s\n", buf);
+}
 
 
 // void main() {
