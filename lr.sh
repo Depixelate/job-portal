@@ -21,7 +21,7 @@ eval "$compilerCommand"
 if [ $? -eq 0 ]; then
     echo "Compilation successful. Output file: $outputFile"
     echo "Debugging $outputFile..."
-    if [ $2 = "-r" ]; then
+    if [ "$2" = "-r" ]; then
         echo ""
         eval "gdb $outputFile"
     fi
