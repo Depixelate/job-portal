@@ -118,6 +118,47 @@ void get_good_form_name_test() {
 	printf("%s\n", buf);
 }
 
+
+void get_good_form_name_rec(char *path, char good_form_name[]){
+	char form_names[MAX_LINES][MAX_LENGTH];
+	int num_forms;
+	read_index(path, form_names, &num_forms);
+	char form_name[MAX_LENGTH];
+	while (true) {
+		bool is_valid_name = false;
+		printf("Enter your form's name: ");
+		fgets(form_name, MAX_LENGTH, stdin);
+		form_name[strlen(form_name)-1] = '\0';
+				
+		for(int i = 0; i < num_forms; i++) {
+			if(strcmp(form_name, form_names[i]) == 0) {
+                is_valid_name = true;
+				break;
+			} 
+		}
+		if(is_valid_name) {
+			break;
+		} else {
+			printf("Invalid form name! Try again!\n");
+		}
+	}
+	strcpy(good_form_name, form_name);
+}
+
+void get_good_form_name_test_rec() {
+	char buf[100];
+	printf("Application\n");
+	get_good_form_name_rec("example/Applicants/index.txt", buf);
+	printf("%s\n", buf);
+	printf("Opening\n");
+	get_good_form_name_rec("example/Job Openings/index.txt", buf);
+	printf("%s\n", buf);
+}
+
+// void main() {
+// 	get_good_form_name_test_rec();
+// }
+
 void create_form(char *directory, char *form_path) {
 	char good_form_name[MAX_LENGTH];
 	char index_path[MAX_LENGTH];
@@ -141,7 +182,8 @@ void create_form_test() {
 	create_form("example/Job Openings", "example/opening_form.txt");
 }
 
-void main() {
-	create_form_test();
-}
+// void main() {
+// 	create_form_test();
+// }
+
 
