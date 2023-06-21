@@ -43,12 +43,19 @@ void read_index_test() {
 
 void read(const char *path, char *file_buf) {
 	FILE *fp = fopen(path, "r");
-	file_buf = "";
+	file_buf[0] = '\0';
 	char *end = file_buf;
 	while(fgets(end, 4096, fp) != NULL) {
 		end = file_buf + strlen(file_buf);
 	}
 	fclose(fp);
+}
+
+void read_test() {
+	char form[MAX_LENGTH*MAX_LINES];
+	read("example/opening_form.txt", form);
+	printf("%s", form);
+	fflush(stdout);
 }
 
 void write(const char *path, const char *file_content) {
@@ -104,15 +111,37 @@ void get_good_form_name(char *path, char good_form_name[]){
 void get_good_form_name_test() {
 	char buf[100];
 	printf("Application\n");
-	get_good_form_name("Example/Applicants/index.txt", buf);
+	get_good_form_name("example/Applicants/index.txt", buf);
 	printf("%s\n", buf);
 	printf("Opening\n");
-	get_good_form_name("Example/Job Openings/index.txt", buf);
+	get_good_form_name("example/Job Openings/index.txt", buf);
 	printf("%s\n", buf);
 }
 
+void create_form(char *directory, char *form_path) {
+	char good_form_name[MAX_LENGTH];
+	char index_path[MAX_LENGTH];
+	strcpy(index_path, directory);
+	get_good_form_name(strcat(index_path,"/index.txt"), good_form_name);
+	char form_text[MAX_LENGTH*MAX_LINES];
+	read(form_path, form_text);
+	char new_form_path[MAX_LENGTH];
+	strcpy(new_form_path, directory);
+	strcat(strcat(strcat(new_form_path, "/"), good_form_name), ".txt");
+	write(new_form_path, form_text);
+	FILE *fp = fopen(index_path, "a");
+	fprintf(fp, "%s\n", good_form_name);
+	fclose(fp);
+}
 
-// void main() {
-// 	get_good_form_name_test();
-// }
+void create_form_test() {
+	printf("Application\n");
+	create_form("example/Applicants", "example/seeker_form.txt");
+	printf("Opening\n");
+	create_form("example/Job Openings", "example/opening_form.txt");
+}
+
+void main() {
+	create_form_test();
+}
 
