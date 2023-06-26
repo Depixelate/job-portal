@@ -21,6 +21,8 @@ void dict_str_int_add(DictStrInt *dict, char *key,  int value) {
     dict->len += 1;
 }
 
+
+//returns true or false depending on if key present.
 bool dict_str_int_get(DictStrInt *dict, char *key, int *value) {
     for(int i = 0; i < dict->len; i++) {
         if (strcmp(dict->keys[i], key) == 0) {
@@ -47,7 +49,7 @@ void dict_str_str_add(DictStrStr *dict, char *key,  char *value) {
     dict->len += 1;
 }
 
-char *dict_str_str_set(DictStrStr *dict, char *key) {
+char *dict_str_str_new_ptr(DictStrStr *dict, char *key) {
     dict->len += 1;
     int new_last_index = dict->len - 1;
     strcpy(dict->keys[new_last_index], key);
