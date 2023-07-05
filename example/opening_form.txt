@@ -29,16 +29,16 @@ Score: 100
 Score: 100
 Coursera Data Science
 EdX Data Science
-8.3.2.	Equivalent Certificates for Certificate Set 2
+8.3.2.	Equivalent Certificates for Certificate Set 2:
 Score: 100
-8.3.3.	Equivalent Certificates for Certificate Set 3
+8.3.3.	Equivalent Certificates for Certificate Set 3:
 Score: 100
 
-8.4.	Minimum Number of Years of Experience in given technologies(The following is given as an example to illustrate the format)
-	Score: 100
+8.4.	Minimum Number of Years of Experience in given technologies(The following is given as an example to illustrate the format):
+Score: 100
 C: 5
 Java: 2
-9.	Compulsory Constraints
+9.	Compulsory Constraints:
 9.1.	Maximum Age:
 Score: 100
 9.2.	Minimum Educational Attainment(Leave Blank if no degree is required):

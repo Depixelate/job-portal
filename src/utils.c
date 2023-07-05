@@ -1,3 +1,4 @@
+#pragma once
 #include <string.h>
 #include <stdbool.h>
 #include <stdio.h>
@@ -5,8 +6,6 @@
 #define MAX_KV_PAIRS 25
 #define MAX_KEY_LEN 100
 #define MAX_VAL_STR_LEN 100
-
-char buf[1000];
 
 typedef struct {
     char keys[MAX_KV_PAIRS][MAX_KEY_LEN];
@@ -43,7 +42,7 @@ void dict_str_int_clear(DictStrInt *dict) {
 void dict_str_int_print(DictStrInt *dict) {
     printf("{");
     for(int i = 0; i < dict->len; i++) {
-        printf("\"%s\":%d, ", dict->keys[i], dict->values[i]);
+        printf("\"%s\" : %d, ", dict->keys[i], dict->values[i]);
     }
     printf("}\n");
 }
@@ -68,14 +67,18 @@ char *dict_str_str_new_ptr(DictStrStr *dict, char *key) {
     dict->len += 1;
     int new_last_index = dict->len - 1;
     strcpy(dict->keys[new_last_index], key);
-    return dict->values[new_last_index];
+    char *value = dict->values[new_last_index];
+    value[0] = '\0';
+    return value;
 }
 
 void dict_str_str_next_ptrs(DictStrStr *dict, char **key, char **value) {
     dict->len += 1;
     int last_index = dict->len - 1;
     *key = dict->keys[last_index];
+    (*key)[0] = '\0';
     *value = dict->values[last_index];
+    (*value)[0] = '\0';
 }
 
 //returns true or false depending on if key 
@@ -97,7 +100,7 @@ void dict_str_str_clear(DictStrStr *dict) {
 void dict_str_str_print(DictStrStr *dict) {
     printf("{");
     for(int i = 0; i < dict->len; i++) {
-        printf("\"%s\":\"%s\", ", dict->keys[i], dict->values[i]);
+        printf("\"%s\" : \"%s\", ", dict->keys[i], dict->values[i]);
     }
     printf("}\n");
 }

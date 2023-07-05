@@ -1,10 +1,9 @@
+#pragma once
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
 #include <stdbool.h>
-
-#define MAX_LINES 300
-#define MAX_LENGTH 300
+#include "form_types.c"
 
 void read_index(char *file_name, char buf[][MAX_LENGTH], int *num_lines) {
     FILE *file;
