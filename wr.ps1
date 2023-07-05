@@ -8,7 +8,7 @@ param (
     [switch]$r
 )
 
-$compilerOptions = "-lm -Wall -Wextra -pedantic -std=c99 -O2 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fstack-protector -g3 -ggdb"
+$compilerOptions = "-lm -Wall -Wextra -pedantic -std=c99 -O0 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fstack-protector -g3 -ggdb"
 $compiler = "gcc"
 
 # Show options to the user

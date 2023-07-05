@@ -1,5 +1,6 @@
+#pragma once
 #include <string.h>
-#include "utils.c"
+#include "dict.c"
 
 #define MAX_TITLE_LENGTH 50
 #define MAX_TITLES 20
@@ -97,6 +98,11 @@ typedef struct {
 } ExpCon;
 
 typedef struct {
+    int max_age;
+    int score;
+} MaxAgeCon;
+
+typedef struct {
     MaxAgeCon max_age;
     MinEduCon min_edu;
     CertCon cert_lists;
@@ -119,22 +125,10 @@ typedef struct {
 } ProjDetail;
 
 
-
-typedef struct {
-    char name[40];
-    int age;
-    char gender; //'M' or 'F'#define MAX_MAJORS 5
 #define MAX_MAJOR_LENGTH 50
-
-#include "utils.h"
 #define NUM_CERTS_LISTS 3
 #define MAX_CERT_LIST_LENGTH 100 
-#define MAX_CERT_LENGTH MAX_MAJOR LENGTH
-
-typedef struct {
-    int max_age;
-    int score;
-} MaxAgeCon;
+#define MAX_CERT_LENGTH MAX_MAJOR_LENGTH
 
 typedef struct {
     char majors[MAX_MAJORS][MAX_MAJOR_LENGTH];
@@ -151,7 +145,7 @@ typedef struct {
 } EqCerts;
 
 typedef struct {
-    EqCerts cert_lists[MAX_CERT_LISTS];
+    EqCerts cert_lists[NUM_CERT_LISTS];
 } CertCon;
 
 typedef struct {
@@ -165,6 +159,11 @@ typedef struct {
     CertCon cert_lists;
     ExpCon years_exp;
 } EmpCons;
+
+typedef struct {
+    char name[40];
+    int age;
+    char gender; //'M' or 'F'#define MAX_MAJORS 5
     char email[40];
     char phone_no[15];
     LevelsEdu levelsEdu;
