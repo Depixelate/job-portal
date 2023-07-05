@@ -39,12 +39,17 @@ void dict_str_int_clear(DictStrInt *dict) {
     dict -> len = 0;
 }
 
-void dict_str_int_print(DictStrInt *dict) {
+void _dict_str_int_print(DictStrInt *dict) {
     printf("{");
     for(int i = 0; i < dict->len; i++) {
         printf("\"%s\" : %d, ", dict->keys[i], dict->values[i]);
     }
-    printf("}\n");
+    printf("}");
+}
+
+void dict_str_int_print(DictStrInt *dict) {
+    _dict_str_int_print(dict);
+    printf("\n");
 }
 
 typedef struct {
@@ -97,12 +102,17 @@ void dict_str_str_clear(DictStrStr *dict) {
     dict -> len = 0;
 }
 
-void dict_str_str_print(DictStrStr *dict) {
+void _dict_str_str_print(DictStrStr *dict) {
     printf("{");
     for(int i = 0; i < dict->len; i++) {
         printf("\"%s\" : \"%s\", ", dict->keys[i], dict->values[i]);
     }
-    printf("}\n");
+    printf("}");
+}
+
+void dict_str_str_print(DictStrStr *dict) {
+    _dict_str_str_print(dict);
+    printf("\n");
 }
 
 void dict_str_str_test() {

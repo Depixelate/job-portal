@@ -1,11 +1,11 @@
 #pragma once
-#include "utils.c"
+#include "dict.c"
 
 #define MAX_QNO_CHARS 10
 #define MAX_PROMPT_CHARS 200
-#define MAX_ANS_KV_PAIRS 10
 #define MAX_LINES 200
 #define MAX_LENGTH 200
+#define MAX_FORM_QUESTIONS 100
 
 typedef struct {
     char number[MAX_QNO_CHARS];
@@ -19,15 +19,20 @@ void question_init(Question *q) {
     dict_str_str_init(&q->response);
 }
 
-void question_print(Question *q) {
+void _question_print(Question *q) {
     printf("{num:\"%s\", prompt:\"%s\", response: ", q->number, q->prompt);
-    dict_str_str_print(&q->response);
-    printf("}\n");
+    _dict_str_str_print(&q->response);
+    printf("}");
+}
+
+void question_print(Question *q) {
+    _question_print(q);
+    printf("\n");
 }
 
 typedef struct {
-    char keys[MAX_KV_PAIRS][MAX_KEY_LEN];
-    Question values[MAX_KV_PAIRS];
+    char keys[MAX_FORM_QUESTIONS][MAX_KEY_LEN];
+    Question values[MAX_FORM_QUESTIONS];
     int len;
 } DictStrQ;
 
@@ -73,13 +78,18 @@ bool dict_str_q_get(DictStrQ *dict, char *key, Question **value) {
     return false;
 }
 
-void dict_str_q_print(DictStrQ *dict) {
+void _dict_str_q_print(DictStrQ *dict) {
     printf("{\n");
     for(int i = 0; i < dict->len; i++) {
         printf("\"%s\" : ", dict->keys[i]);
         question_print(&dict->values[i]);
     }
-    printf("}\n");
+    printf("}");
+}
+
+void dict_str_q_print(DictStrQ *dict) {
+    _dict_str_q_print(dict);
+    printf("\n");
 }
 
 void dict_str_q_test() {

@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include "form_types.c"
 #include "handle_forms.c"
+#include "string_utils.c"
 
 /* returns whether the beginning of a line matches a question number, and if so returns the question number and index of the beginning of the prompt */ 
 
@@ -69,10 +70,13 @@ Mode parse_response(State *s) {
         return READ_QUESTION;
     } 
 
-    char *key, *value;
-    dict_str_str_next_ptrs(&(s->cur_question->response), &key, &value);
-    int num_chars_read = -1;
-    sscanf(s->lines[s->cur_line] + s->cur_line_index, "%[^:]:%[^\n]%n", key, value, &num_chars_read);
+    char key[MAX_KEY_LEN] = "", value[MAX_VAL_STR_LEN] = "";
+    //dict_str_str_next_ptrs(&(s->cur_question->response), &key, &value);
+    sscanf(s->lines[s->cur_line] + s->cur_line_index, "%[^:]:%[^\n]", key, value);
+
+    if(!has_only_spaces(key)) {
+        dict_str_str_add(&(s->cur_question->response), mut_trim(key), mut_trim(value));
+    }
 
     to_next_line(s);    
 
@@ -82,12 +86,18 @@ Mode parse_response(State *s) {
 Mode parse_question(State *s) {
     char *cur_pos_prompt = s->cur_question->prompt + strlen(s->cur_question->prompt);
     int num_chars_read = -1;
-    sscanf(s->lines[s->cur_line] + s->cur_line_index, "%[^:]:%n", cur_pos_prompt, &num_chars_read);
+    char *cur_pos_line = s->lines[s->cur_line] + s->cur_line_index;
+    sscanf(cur_pos_line, "%[^:]:%n", cur_pos_prompt, &num_chars_read);
 
     if(num_chars_read != -1) { // colon
         s->cur_line_index += num_chars_read;
+        strcpy(s->cur_question->prompt, mut_trim(s->cur_question->prompt));
         return READ_RESPONSE;
     }
+
+    char *prompt_end = cur_pos_prompt + num_chars_read;
+    prompt_end[1] = '\0';
+    prompt_end[0] = '\n';
     
     to_next_line(s);
 
@@ -103,7 +113,7 @@ void parse_form(char lines[MAX_LINES][MAX_LENGTH], int num_lines, DictStrQ *form
         printf("Error! Invalid Form given to parse_form!\n");
         return;
     }
-    
+
     Mode cur_mode = READ_RESPONSE;
     State s = {.lines = lines, .cur_question = NULL, .cur_line = 0, .cur_line_index = 0, .form = form};
 
@@ -123,7 +133,7 @@ void parse_form(char lines[MAX_LINES][MAX_LENGTH], int num_lines, DictStrQ *form
 void parse_form_test() {
     char lines[MAX_LINES][MAX_LENGTH];
     int num_lines;
-    read_index("example/opening_form.txt", lines, &num_lines); 
+    read_index("example/opening_form.txt", lines, &num_lines);
     DictStrQ form;
     dict_str_q_init(&form);
     parse_form(lines, num_lines, &form);

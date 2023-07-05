@@ -1,6 +1,6 @@
 #pragma once
 #include <string.h>
-#include "utils.c"
+#include "dict.c"
 
 #define MAX_TITLE_LENGTH 50
 #define MAX_TITLES 20
