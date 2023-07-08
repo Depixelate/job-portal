@@ -159,12 +159,12 @@ void form_to_seeker(DictStrQ *form, Seeker *seeker) {
        seeker->compulsory_cons.min_sal.score=0;
     dict_str_q_get(for,"13.3.",&q);
     if (q->response.values[0]!=0){
-            strcpy(seeker->desirable_cons.shift.shift,q->response.keys[i][0]);
-            seeker->desirable_cons.shift.score=q->response.values[i]
+            strcpy(seeker->compulsory_cons.shift.shift,q->response.keys[i][0]);
+            seeker->compulsory_cons.shift.score=q->response.values[i]
         
     }
     else
-       seeker->desirable_cons.score=0;
+       seeker->compulsory_cons.score=0;
     dict_str_q_get(form,"13.4.",&q);
     if (q->response.values[0]!=0){
         for(int i=0;i<q->response.len;i++){
