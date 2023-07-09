@@ -117,3 +117,4 @@ void form_to_opening(DictStrQ *form, Opening *opener) {
         strcpy(opener->compulsory_cons.years_exp.keys[i],q->respose.keys[i]);
         opener->compulsory_cons.years_exp.values[i]=atoi(q->response.values[i]);
     }
+}
