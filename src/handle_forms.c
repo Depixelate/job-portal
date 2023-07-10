@@ -95,7 +95,7 @@ void get_good_form_name(char *path, char good_form_name[]){
 				
 		for(int i = 0; i < num_forms; i++) {
 			if(strcmp(form_name, form_names[i]) == 0) {
-				printf("Invalid form name! Try again!\n");
+				printf("Form name already taken! Try again!\n");
                 is_valid_name = false;
 				break;
 			} 
@@ -138,7 +138,7 @@ void get_good_form_name_rec(char *path, char good_form_name[]){
 		if(is_valid_name) {
 			break;
 		} else {
-			printf("Invalid form name! Try again!\n");
+			printf("Form name doesn't exist! Try again!\n");
 		}
 	}
 	strcpy(good_form_name, form_name);
@@ -158,7 +158,9 @@ void get_good_form_name_test_rec() {
 // 	get_good_form_name_test_rec();
 // }
 
-void create_form(char *directory, char *form_path) {
+
+// creates a copy of the form specified by form_path, in the directory specified by directory
+void create_form_copy(char *directory, char *form_path) {
 	char good_form_name[MAX_LENGTH];
 	char index_path[MAX_LENGTH];
 	strcpy(index_path, directory);
@@ -176,9 +178,9 @@ void create_form(char *directory, char *form_path) {
 
 void create_form_test() {
 	printf("Application\n");
-	create_form("example/Applicants", "example/seeker_form.txt");
+	create_form_copy("example/Applicants", "example/seeker_form.txt");
 	printf("Opening\n");
-	create_form("example/Job Openings", "example/opening_form.txt");
+	create_form_copy("example/Job Openings", "example/opening_form.txt");
 }
 
 // void main() {

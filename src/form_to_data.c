@@ -17,7 +17,7 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
     strcpy(opening->location,loc);
     dict_str_q_get(form, "5.", &q);
     char shift=q->response.keys[0][0];
-    strcpy(opening->shift,shift);
+    opening->shift = shift;
     dict_str_q_get(form, "6.", &q);
     // opening->hours=atoi(q->response.keys[0]);
     dict_str_q_get(form, "7.", &q);
@@ -30,7 +30,7 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
         opening->desireable_cons.max_age.max_age=atoi(q->response.keys[1]);
     }
     dict_str_q_get(form, "8.2.1.", &q);
-    int score = atoi(q->response.values[0]);
+    score = atoi(q->response.values[0]);
     opening->desireable_cons.min_edu.bachelors.score = score;
     if(score != 0) {
         for(int i = 1; i < q->response.len; i++) {
@@ -40,7 +40,7 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
     }
     
     dict_str_q_get(form, "8.2.2.", &q);
-    int score = atoi(q->response.values[0]);
+    score = atoi(q->response.values[0]);
     opening->desireable_cons.min_edu.masters.score = score;
     if(score != 0) {
         for(int i = 1; i < q->response.len; i++) {
@@ -50,7 +50,7 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
     }
 
     dict_str_q_get(form, "8.2.3.", &q);
-    int score = atoi(q->response.values[0]);
+    score = atoi(q->response.values[0]);
     opening->desireable_cons.min_edu.phd.score = score;
     if(score != 0) {
         for(int i = 1; i < q->response.len; i++) {
@@ -60,7 +60,7 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
     }
 
     dict_str_q_get(form, "8.2.4.", &q);
-    int score = atoi(q->response.values[0]);
+    score = atoi(q->response.values[0]);
     opening->desireable_cons.min_edu.post_doc.score = score;
     if(score != 0) {
         for(int i = 1; i < q->response.len; i++) {
@@ -75,7 +75,7 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
         char q_num[MAX_QNO_CHARS];
         snprintf(q_num, MAX_QNO_CHARS, "8.3.%d", h);
         dict_str_q_get(form, q_num, &q);
-        int score = atoi(q->response.values[0]);
+        score = atoi(q->response.values[0]);
         opening->desireable_cons.cert_lists.cert_lists[h-1].score = score;
         if (score != 0) {
             for (int i = 1; i < q->response.len; i++) {
@@ -87,7 +87,7 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
 
 
     dict_str_q_get(form,"8.4.",&q);
-    int score = atoi(q->response.values[0]);
+    score = atoi(q->response.values[0]);
     opening->desireable_cons.years_exp.score = score;
     if (score != 0) {
         dict_str_int_init(&opening->desireable_cons.years_exp.field_years_exp);
@@ -97,13 +97,13 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
     }
 
     dict_str_q_get(form,"9.1.",&q);
-    int score = atoi(q->response.values[0]);
+    score = atoi(q->response.values[0]);
     opening->compulsory_cons.max_age.score = score;
     if(score != 0) {
         opening->compulsory_cons.max_age.max_age=atoi(q->response.keys[1]);
     }
     dict_str_q_get(form, "9.2.1.", &q);
-    int score = atoi(q->response.values[0]);
+    score = atoi(q->response.values[0]);
     opening->compulsory_cons.min_edu.bachelors.score = score;
     if(score != 0) {
         for(int i = 1; i < q->response.len; i++) {
@@ -113,7 +113,7 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
     }
     
     dict_str_q_get(form, "9.2.2.", &q);
-    int score = atoi(q->response.values[0]);
+    score = atoi(q->response.values[0]);
     opening->compulsory_cons.min_edu.masters.score = score;
     if(score != 0) {
         for(int i = 1; i < q->response.len; i++) {
@@ -123,7 +123,7 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
     }
 
     dict_str_q_get(form, "9.2.3.", &q);
-    int score = atoi(q->response.values[0]);
+    score = atoi(q->response.values[0]);
     opening->compulsory_cons.min_edu.phd.score = score;
     if(score != 0) {
         for(int i = 1; i < q->response.len; i++) {
@@ -133,7 +133,7 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
     }
 
     dict_str_q_get(form, "9.2.4.", &q);
-    int score = atoi(q->response.values[0]);
+    score = atoi(q->response.values[0]);
     opening->compulsory_cons.min_edu.post_doc.score = score;
     if(score != 0) {
         for(int i = 1; i < q->response.len; i++) {
@@ -148,7 +148,7 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
         char q_num[MAX_QNO_CHARS];
         snprintf(q_num, MAX_QNO_CHARS, "9.3.%d", j);
         dict_str_q_get(form, q_num, &q);
-        int score = atoi(q->response.values[0]);
+        score = atoi(q->response.values[0]);
         opening->compulsory_cons.cert_lists.cert_lists[j-1].score = score;
         if (score != 0) {
             for (int i = 1; i < q->response.len; i++) {
@@ -160,7 +160,7 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
 
 
     dict_str_q_get(form,"9.4.",&q);
-    int score = atoi(q->response.values[0]);
+    score = atoi(q->response.values[0]);
     opening->compulsory_cons.years_exp.score = score;
     if (score != 0) {
         dict_str_int_init(&opening->compulsory_cons.years_exp.field_years_exp);
@@ -219,7 +219,7 @@ void form_to_seeker(DictStrQ *form, Seeker *seeker) {
     }
     dict_str_q_get(form,"8.",&q);
     seeker->certs.len=q->response.len;
-    for(int i=0;i,q->response.len;i++){
+    for(int i=0;i<q->response.len;i++){
         strcpy(seeker->certs.certs[i],q->response.keys[i]);
     }
     dict_str_q_get(form,"9.",&q);
@@ -236,7 +236,7 @@ void form_to_seeker(DictStrQ *form, Seeker *seeker) {
     dict_str_q_get(form,"10.1.4.",&q);
     seeker->proj_details[0].salary = atoi(q->response.keys[0]);
     dict_str_q_get(form,"10.1.5",&q);
-    srtcpy(seeker->proj_details[0].start_date,q->response.keys[0]);
+    strcpy(seeker->proj_details[0].start_date,q->response.keys[0]);
     dict_str_q_get(form,"10.1.6.",&q);
     strcpy(seeker->proj_details[0].end_date,q->response.keys[0]);
     dict_str_q_get(form,"10.1.7",&q);
@@ -250,7 +250,7 @@ void form_to_seeker(DictStrQ *form, Seeker *seeker) {
     dict_str_q_get(form,"10.2.4.",&q);
     seeker->proj_details[1].salary = atoi(q->response.keys[0]);
     dict_str_q_get(form,"10.2.5",&q);
-    srtcpy(seeker->proj_details[1].start_date,q->response.keys[0]);
+    strcpy(seeker->proj_details[1].start_date,q->response.keys[0]);
     dict_str_q_get(form,"10.2.6.",&q);
     strcpy(seeker->proj_details[1].end_date,q->response.keys[0]);
     dict_str_q_get(form,"10.2.7",&q);
@@ -264,7 +264,7 @@ void form_to_seeker(DictStrQ *form, Seeker *seeker) {
     dict_str_q_get(form,"10.3.4.",&q);
     seeker->proj_details[2].salary = atoi(q->response.keys[0]);
     dict_str_q_get(form,"10.3.5",&q);
-    srtcpy(seeker->proj_details[2].start_date,q->response.keys[0]);
+    strcpy(seeker->proj_details[2].start_date,q->response.keys[0]);
     dict_str_q_get(form,"10.3.6.",&q);
     strcpy(seeker->proj_details[2].end_date,q->response.keys[0]);
     dict_str_q_get(form,"10.3.7",&q);
@@ -390,4 +390,13 @@ void form_to_seeker(DictStrQ *form, Seeker *seeker) {
     if (score!=0){
         seeker->compulsory_cons.max_hours.work_hours=atoi(q->response.keys[1]);
     }
+}
+
+
+void form_to_seeker_test() {
+
+}
+
+void form_to_opening_test() {
+
 }

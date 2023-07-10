@@ -4,24 +4,29 @@
 4.	Email:
 5.	Phone number:
 6.	Address(Can be multiple lines):
-7.	Highest Level of Education(If you don’t have a degree, skip this section):
-7.1.	Fields where your highest level of education is a Bachelor’s degree(The following are examples showing the format.):
+
+7.	Highest Level of Education:
+
+7.1.	Equivalent Fields where your highest level of education is a Bachelor's degree(The following are examples showing the format.):
 computer science
 mechanical engineering
 
-7.2.	Fields where your highest level of education is a Master’s degree:
-7.3.	Fields where your highest level of education is a PHD:
-7.4.	Fields where your highest level of education is a Post Doctorate:
+7.2.	Equivalent Fields where your highest level of education is a Master's degree:
+
+7.3.	Equivalent Fields where your highest level of education is a PHD:
+
+7.4.	Equivalent Fields where your highest level of education is a Post Doctorate:
  
-8.	Certificate Names(The following are examples showing the format.):
+8.	Certificates Earned(The following are examples showing the format.):
 Coursera Data Science
 EdX DBMS 
 
-9.	Years of experience in various Fields/Technologies(The following are examples showing the format, <Field>:<Years of Experience>):
+9.	Years of experience in various Fields/Technologies(The following are examples showing the format):
 C: 5
 Python: 15
 
 10.	Past Project Details/References:
+
 10.1.	Project 1:
 10.1.1.	Job Title:
 10.1.2.	Company Name:
@@ -31,7 +36,9 @@ Python: 15
 10.1.6.	Ending Date:
 10.1.7.	Other Details:
 
+
 10.2.	Project 2:
+
 10.2.1.	Job Title:
 10.2.2.	Company Name:
 10.2.3.	Address:
@@ -40,7 +47,9 @@ Python: 15
 10.2.6.	Ending Date:
 10.2.7.	Other Details:
 
+
 10.3.	Project 3:
+
 10.3.1.	Job Title:
 10.3.2.	Company Name:
 10.3.3.	Address:
@@ -51,15 +60,16 @@ Python: 15
 
 11.	Any Other Information About Yourself: 
 
-12.	Desirable Constraints. Leave a constraint blank if you don’t want to apply it:
+12.	Desirable Constraints.(Change the importance of the constraint by changing 'Score'. If you don't want to apply a constraint, set 'Score
+ to 0. Make sure score is always on top):
 
 12.1.	The Positions you are willing to take (The following given below are examples to illustrate the format):
-		Score: 100
+Score: 100
 
 Lead Developer
 Senior Developer
 
-12.2.	What is the minimum salary you are willing to accept(in Rs.):
+12.2.	What is the minimum salary you are willing to accept(in Rs. per annum):
 Score: 100
 
 12.3.	Which Shifts are you willing to take(Day(D)/Night(N)/Both(B) Only):
@@ -75,7 +85,8 @@ Madurai
 12.5.	What is the maximum number of hours you want to work:
 Score: 100
 
-13.	Compulsory Constraints(Leave Blank if you don’t want to apply a constraint):
+13.	Compulsory Constraints(Change the importance of the constraint by changing 'Score'. If you don't want to apply a constraint, set 'Score
+ to 0. Make sure score is always on top):
 
 13.1.	The Positions you are willing to take (The following given below are examples to illustrate the format):
 Score: 100
@@ -99,5 +110,4 @@ Madurai
 13.5.	What is the maximum number of hours you want to work:
 Score: 100
 
-
-14.	The data given in this form is True to the best of my knowledge (Y/N Only):  Y
+14.	The data given in this form is True to the best of my knowledge (Y/N Only):  N

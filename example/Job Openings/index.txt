@@ -1,2 +1,2 @@
-__test_opening
-kavijn
+Data Scientist
+Full Stack Developer
