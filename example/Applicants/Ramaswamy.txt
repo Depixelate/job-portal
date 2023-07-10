@@ -71,11 +71,13 @@ Score: 100
 
 Front End Developer
 
-12.2.	What is the minimum salary you are willing to accept(in Rs. per annum):300000
+12.2.	What is the minimum salary you are willing to accept(in Rs. per annum):
 Score: 100
+300000
 
-12.3.	Which Shifts are you willing to take(Day(D)/Night(N)/Both(B) Only):B
+12.3.	Which Shifts are you willing to take(Day(D)/Night(N)/Both(B) Only):
 Score: 100
+B
 
 12.4.	Which Locations are you willing to work at (The following given below are examples to illustrate the format):
 Score: 100
