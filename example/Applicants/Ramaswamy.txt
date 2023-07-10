@@ -85,8 +85,9 @@ Mumbai
 Hydreabad
 
 
-12.5.	What is the maximum number of hours you want to work:6 Hr
+12.5.	What is the maximum number of hours you want to work:
 Score: 100
+6
 
 13.	Compulsory Constraints(Change the importance of the constraint by changing 'Score'. If you don't want to apply a constraint, set 'Score
  to 0. Make sure score is always on top):
@@ -96,11 +97,13 @@ Score: 100
 
 Front End Developer
 
-13.2.	What is the minimum salary you are willing to accept(in Rs.):100000
+13.2.	What is the minimum salary you are willing to accept(in Rs.):
 Score: 100
+100000
 
-13.3.	Which Shifts are you willing to take(Day(D)/Night(N)/Both(B) Only):D
+13.3.	Which Shifts are you willing to take(Day(D)/Night(N)/Both(B) Only):
 Score: 100
+D
 
 13.4.	Which Locations are you willing to work at (The following given below are examples to illustrate the format):
 Score: 100
@@ -109,7 +112,8 @@ Chennai
 Bangalore
 Mumbai
 
-13.5.	What is the maximum number of hours you want to work:6 hours
+13.5.	What is the maximum number of hours you want to work:
 Score: 100
+6
 
 14.	The data given in this form is True to the best of my knowledge (Y/N Only):  Y
