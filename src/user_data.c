@@ -7,6 +7,12 @@
 #define MAX_LOC 5
 #define MAX_LOCATION_LENGTH 20
 
+#define MAX_MAJORS 5
+#define MAX_MAJOR_LENGTH 50
+#define NUM_CERT_LISTS 3
+#define MAX_CERT_LIST_LENGTH 100 
+#define MAX_CERT_LENGTH MAX_MAJOR_LENGTH
+
 typedef struct{
 	int min_sal;		//this is score for min sal
 	int score;
@@ -42,8 +48,6 @@ typedef struct{
 	int score;
 }LocCons;
 
-
-
 typedef struct{
 	TitlesCons titles;
 	MinSalaryCons min_sal;
@@ -51,13 +55,6 @@ typedef struct{
 	LocCons prefferred_location;
 	MaxHours max_hours;
 }AppCons;
-
-
-#define MAX_MAJORS 5
-#define MAX_MAJOR_LENGTH 50
-#define NUM_CERT_LISTS 3
-#define MAX_CERT_LIST_LENGTH 100 
-#define MAX_CERT_LENGTH MAX_MAJOR_LENGTH
 
 typedef struct {
     int max_age;
@@ -98,21 +95,13 @@ typedef struct {
 } ExpCon;
 
 typedef struct {
-    int max_age;
-    int score;
-} MaxAgeCon;
-
-typedef struct {
     MaxAgeCon max_age;
     MinEduCon min_edu;
     CertCon cert_lists;
     ExpCon years_exp;
 } EmpCons;
-//TODO: Define Constraints.
 
-typedef struct {
-    Majors bachelors, masters, phd, post_doc;
-} LevelsEdu;
+// TODO: Add Macros for constraints
 
 typedef struct {
     char title[100];
@@ -124,41 +113,9 @@ typedef struct {
     char other_details[1000];
 } ProjDetail;
 
-
-#define MAX_MAJOR_LENGTH 50
-#define NUM_CERTS_LISTS 3
-#define MAX_CERT_LIST_LENGTH 100 
-#define MAX_CERT_LENGTH MAX_MAJOR_LENGTH
-
 typedef struct {
-    char majors[MAX_MAJORS][MAX_MAJOR_LENGTH];
-    int score;
-} MinEduLvl;
-
-typedef struct {
-    MinEduLvl bach, mast, phd, post;
-} MinEduCon;
-
-typedef struct {
-    char certs[MAX_CERT_LIST_LENGTH][MAX_CERT_LENGTH];
-    int score;
-} EqCerts;
-
-typedef struct {
-    EqCerts cert_lists[NUM_CERT_LISTS];
-} CertCon;
-
-typedef struct {
-    DictStrInt field_years_exp;
-    int score;
-} ExpCon;
-
-typedef struct {
-    MaxAgeCon max_age;
-    MinEduCon min_edu;
-    CertCon cert_lists;
-    ExpCon years_exp;
-} EmpCons;
+    Majors bachelors, masters, phd, post_doc;
+} LevelsEdu;
 
 typedef struct {
     char name[40];
