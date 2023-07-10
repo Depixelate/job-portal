@@ -93,6 +93,7 @@ Score: 100
 
 Front End Developer
 Back End Developer
+
 13.2.	What is the minimum salary you are willing to accept(in Rs.):200000
 Score: 100
 
