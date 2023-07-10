@@ -2,40 +2,49 @@
 #include "user_data.c"
 #include "form_types.c"
 
-void form_to_opening(DictStrQ *form, Opening *opener) {
+void form_to_opening(DictStrQ *form, Opening *opening) {
     Question *q;
     dict_str_q_get(form, "1.", &q);
-    Response *r = q->response;
-    char *name = response.keys[0];
-    strcpy(opener->name, name);
+    char *name = q->response.keys[0];
+    strcpy(opening->employer_name, name);
     dict_str_q_get(form, "2.", &q);
-    r = q->response;
-    char *title = response.keys[0];
-    strcpy(opener->title,title);
+    char *title = q->response.keys[0];
+    strcpy(opening->title,title);
     dict_str_q_get(form, "3.", &q);
-    opener->salary = atoi(q->response.keys[0]);
+    opening->salary = atoi(q->response.keys[0]);
     dict_str_q_get(form, "4.", &q);
     char *loc=q->response.keys[0];
-    strcpy(opener->location,loc);
+    strcpy(opening->location,loc);
     dict_str_q_get(form, "5.", &q);
-    char *shift=q->response.keys[0][0];
-    strcpy(opener->shift,shift);
+    char shift=q->response.keys[0][0];
+    strcpy(opening->shift,shift);
     dict_str_q_get(form, "6.", &q);
-    opener->hours=atoi(q->response.keys[0]);
+    opening->hours=atoi(q->response.keys[0]);
     dict_str_q_get(form, "7.", &q);
     char *extra=q->response.keys[0];
-    strcpy(opener->extra_info,extra);
+    strcpy(opening->extra_info,extra);
     dict_str_q_get(form,"8.1.",&q);
-    opener->desirable_cons.max_age.max_age=atoi(q->response.keys[0]);
-    opener->desirable_cons.max_age.score=atoi(q->response.values[0]);
-    dict_str_q_get(form,"8.2.1.",&q);
-    for(int i = 0; i < q->response.len; i++) {
-        strcpy(opener->desirable_cons.min_edu.bach.majors[i],q->response.keys[i]);
+    int score = atoi(q->response.values[0]);
+    opening->desireable_cons.max_age.score = score;
+    if(score != 0) {
+        opening->desireable_cons.max_age.max_age=atoi(q->response.keys[1]);
     }
-    opener->desirable_cons.min_edu.bach.score = q->response.values[0];
+    dict_str_q_get(form,"8.2.1.",&q);
+    score = atoi(q->response.values[0]);
+    opening->desireable_cons.min_edu.bach.score = score;
+    if(score != 0) {
+        opening->desireable_cons.min_edu.bach.majors
+        for(int i = 0; i < q->response.len; i++) {
+            strcpy(opening->desirable_cons.min_edu.bach.majors[i],q->response.keys[i]);
+        }
+    }
+    for(int i = 0; i < q->response.len; i++) {
+        strcpy(opening->desirable_cons.min_edu.bach.majors[i],q->response.keys[i]);
+    }
+    opening->desirable_cons.min_edu.bach.score = q->response.values[0];
     dict_str_q_get(form,"8.2.2.",&q);
     for(int i-0;i<q->response.len;i++){}
-    strcpy(opener->desirable_cons.min_edu.mast.majors[i] ,q->response.keys[i];
+    strcpy(opening->desirable_cons.min_edu.mast.majors[i] ,q->response.keys[i];
     }
     opener->desirable_cons.min_edu.mast.score=atoi(q->response.values[0]);
     dict_str_q_get(form,"8.2.3.",&q);
