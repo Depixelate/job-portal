@@ -4,6 +4,15 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+#define LEN(X) sizeof(X)/sizeof(X[0])
+
+#ifdef _WIN32
+#include <string.h>
+#define strcasecmp _stricmp
+#else // assuming POSIX or BSD compliant system
+#include <strings.h>
+#endif
+
 // returns pointer to new trimmed str. Note for right trimming we modify the string to add a null terminator at the first right whitespace
 const char *l_trim(const char *str) {
     const char *start = str;
@@ -49,6 +58,24 @@ void string_utils_test() {
     printf("has_only_spaces(\" Hi mother! \") = %d\n", has_only_spaces(" Hi Mother "));
     char new_new_buf[10] = " ";
     printf("mut_trim(\" \") = \"%s\"\n",mut_trim(new_new_buf)); 
+}
+
+bool contains(char *strings, int string_length, int num_strings, char *find_string) {
+    for(char *string = strings; string - strings < string_length*num_strings; string += string_length) {
+        if(strcasecmp(string, find_string) == 0) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void contains_test() {
+    char strings[10][15] = {"Hi", "Hello", "What's for lunch?"};
+    printf("%d %d %d\n", LEN(strings), LEN(strings[0]), contains(strings[0], LEN(strings), LEN(strings[0]), "hii"));
+}
+
+void main() {
+    contains_test();
 }
 
 // void main() {
