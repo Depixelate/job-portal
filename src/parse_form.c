@@ -105,7 +105,12 @@ Mode parse_question(State *s) {
 }
 
 /* takes lines of form, returns a dictionary with question numbers as keys and the questions as values */
-void parse_form(char lines[MAX_LINES][MAX_LENGTH], int num_lines, DictStrQ *form) {
+void parse_form(char path[100], char lines[MAX_LINES][MAX_LENGTH], int num_lines, DictStrQ *form) {
+    dict_str_q_init(form);
+    Question path_q = {.number = "0.", .prompt = "Path", .response = {0}};
+    dict_str_str_init(&path_q.response);
+    dict_str_str_add(&path_q.response, path, "");
+    dict_str_q_add(form, "0.", &path_q);
     char q_num[MAX_QNO_CHARS];
     int temp;
 
@@ -136,11 +141,11 @@ void parse_form_test() {
     read_index("example/opening_form.txt", lines, &num_lines);
     DictStrQ form;
     dict_str_q_init(&form);
-    parse_form(lines, num_lines, &form);
+    parse_form("example/opening_form.txt", lines, num_lines, &form);
     dict_str_q_print(&form);
 }
 
-int main() {
-    parse_form_test();
-    return 0;
-}
+// int main() {
+//     parse_form_test();
+//     return 0;
+// }

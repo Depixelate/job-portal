@@ -1,16 +1,14 @@
-1.	Name:
-2.	Age:
-3.	Gender(M/F Only):
-4.	Email:
-5.	Phone number:
-6.	Address(Can be multiple lines):
+1.	Name:Vignesh Rm
+2.	Age:45
+3.	Gender(M/F Only):Male
+4.	Email:vignesh2210433@ssn.edu.in
+5.	Phone number:7373776068
+6.	Address(Can be multiple lines):No 8 Balaji Nagar,Dharapuram Road ,Tiruppur 641606
 
-7.	Highest Level of Education:
+7.	Highest Level of Education:B.TECH IT
 
 7.1.	Equivalent Fields where your highest level of education is a Bachelor's degree(The following are examples showing the format.):
-computer science
-mechanical engineering
-
+Information Technology
 7.2.	Equivalent Fields where your highest level of education is a Master's degree:
 
 7.3.	Equivalent Fields where your highest level of education is a PHD:
@@ -18,44 +16,46 @@ mechanical engineering
 7.4.	Equivalent Fields where your highest level of education is a Post Doctorate:
  
 8.	Certificates Earned(The following are examples showing the format.):
-Coursera Data Science
-EdX DBMS 
-
+Oracle database
+mySQL datatbase
 9.	Years of experience in various Fields/Technologies(The following are examples showing the format):
-C: 5
-Python: 15
+HTML : 7
+CSS : 6
+Java : 4
+MySQL :3
+
 
 10.	Past Project Details/References:
 
 10.1.	Project 1:
-10.1.1.	Job Title:
-10.1.2.	Company Name:
-10.1.3.	Address:
-10.1.4.	Salary:
-10.1.5.	Starting Date:
-10.1.6.	Ending Date:
+10.1.1.	Job Title:meta Front End Dveloper
+10.1.2.	Company Name:meta
+10.1.3.	Address:1 Hacker Way, Menlo Park, CA 94025, USA
+10.1.4.	Salary:500000
+10.1.5.	Starting Date:5.1.2000
+10.1.6.	Ending Date:6.1.2010
 10.1.7.	Other Details:
 
 
 10.2.	Project 2:
 
-10.2.1.	Job Title:
-10.2.2.	Company Name:
-10.2.3.	Address:
-10.2.4.	Salary:
-10.2.5.	Starting Date:
-10.2.6.	Ending Date:
+10.2.1.	Job Title:google Back End Developer
+10.2.2.	Company Name:Googel
+10.2.3.	Address:Mountain View, California, United States
+10.2.4.	Salary:300000
+10.2.5.	Starting Date:8.1.2011
+10.2.6.	Ending Date:9.4.2018
 10.2.7.	Other Details:
 
 
 10.3.	Project 3:
 
-10.3.1.	Job Title:
-10.3.2.	Company Name:
-10.3.3.	Address:
-10.3.4.	Salary:
-10.3.5.	Starting Date:
-10.3.6.	Ending Date:
+10.3.1.	Job Title:IBM Back End Developer
+10.3.2.	Company Name:IBM
+10.3.3.	Address:Armok,New York United   States
+10.3.4.	Salary:300000
+10.3.5.	Starting Date:4.5.2019
+10.3.6.	Ending Date:3.4.2022
 10.3.7.	Other Details:
 
 11.	Any Other Information About Yourself: 
@@ -67,23 +67,24 @@ Python: 15
 Score: 100
 
 Lead Developer
-Senior Developer
+
 
 12.2.	What is the minimum salary you are willing to accept(in Rs. per annum):
 Score: 100
+200000
 
 12.3.	Which Shifts are you willing to take(Day(D)/Night(N)/Both(B) Only):
 Score: 100
+B
 
 12.4.	Which Locations are you willing to work at (The following given below are examples to illustrate the format):
 Score: 100
 
 Chennai
-Trichy
-Madurai
 
-12.5.	What is the maximum number of hours you want to work:
+12.5.	What is the maximum number of hours you want to work: 
 Score: 100
+6
 
 13.	Compulsory Constraints(Change the importance of the constraint by changing 'Score'. If you don't want to apply a constraint, set 'Score
  to 0. Make sure score is always on top):
@@ -91,23 +92,26 @@ Score: 100
 13.1.	The Positions you are willing to take (The following given below are examples to illustrate the format):
 Score: 100
 
-Lead Developer
-Senior Developer
+Front End Developer
+Back End Developer
 
 13.2.	What is the minimum salary you are willing to accept(in Rs.):
 Score: 100
+100000
 
 13.3.	Which Shifts are you willing to take(Day(D)/Night(N)/Both(B) Only):
 Score: 100
+B
 
 13.4.	Which Locations are you willing to work at (The following given below are examples to illustrate the format):
 Score: 100
 
 Chennai
-Trichy
-Madurai
+Bangalore
+Hydreabad
 
 13.5.	What is the maximum number of hours you want to work:
 Score: 100
+8
 
-14.	The data given in this form is True to the best of my knowledge (Y/N Only):  N
+14.	The data given in this form is True to the best of my knowledge (Y/N Only):  Y 

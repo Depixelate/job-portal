@@ -130,6 +130,7 @@ typedef struct {
     char extra_info[1000];
     AppCons desireable_cons;
     AppCons compulsory_cons;
+    char path[100];
 } Seeker;
 
 typedef struct {
@@ -142,4 +143,5 @@ typedef struct {
     char extra_info[1000];
     EmpCons desireable_cons;
     EmpCons compulsory_cons;
+    char path[100];
 } Opening;

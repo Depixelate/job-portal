@@ -10,7 +10,11 @@ void read_index(char *file_name, char buf[][MAX_LENGTH], int *num_lines) {
     *num_lines = 0;
     
     // Open the file
-    file = fopen(file_name, "r");
+    file = NULL;
+	while(file == NULL) {
+		file = fopen(file_name, "r");
+	}
+	
 
     
     // Read lines from the file and store them in the array
@@ -95,7 +99,7 @@ void get_good_form_name(char *path, char good_form_name[]){
 				
 		for(int i = 0; i < num_forms; i++) {
 			if(strcmp(form_name, form_names[i]) == 0) {
-				printf("Invalid form name! Try again!\n");
+				printf("Form name already taken! Try again!\n");
                 is_valid_name = false;
 				break;
 			} 
@@ -118,7 +122,7 @@ void get_good_form_name_test() {
 }
 
 
-void get_good_form_name_rec(char *path, char good_form_name[]){
+void get_good_form_path(char *path, char good_form_path[]){
 	char form_names[MAX_LINES][MAX_LENGTH];
 	int num_forms;
 	read_index(path, form_names, &num_forms);
@@ -138,27 +142,33 @@ void get_good_form_name_rec(char *path, char good_form_name[]){
 		if(is_valid_name) {
 			break;
 		} else {
-			printf("Invalid form name! Try again!\n");
+			printf("Form name doesn't exist! Try again!\n");
 		}
 	}
-	strcpy(good_form_name, form_name);
+	char *last_slash = strrchr(path, '/') + 1;
+	int num_chars = last_slash - path;
+	strncpy(good_form_path, path, num_chars);
+	good_form_path[num_chars] = '\0';
+	strcat(strcat(good_form_path, form_name), ".txt");
 }
 
-void get_good_form_name_test_rec() {
+void get_good_form_path_test() {
 	char buf[100];
 	printf("Application\n");
-	get_good_form_name_rec("example/Applicants/index.txt", buf);
+	get_good_form_path("example/Applicants/index.txt", buf);
 	printf("%s\n", buf);
 	printf("Opening\n");
-	get_good_form_name_rec("example/Job Openings/index.txt", buf);
+	get_good_form_path("example/Job Openings/index.txt", buf);
 	printf("%s\n", buf);
 }
 
 // void main() {
-// 	get_good_form_name_test_rec();
+// 	get_good_form_path_test();
 // }
 
-void create_form(char *directory, char *form_path) {
+
+// creates a copy of the form specified by form_path, in the directory specified by directory
+void create_form_copy(char *directory, char *form_path) {
 	char good_form_name[MAX_LENGTH];
 	char index_path[MAX_LENGTH];
 	strcpy(index_path, directory);
@@ -176,9 +186,9 @@ void create_form(char *directory, char *form_path) {
 
 void create_form_test() {
 	printf("Application\n");
-	create_form("example/Applicants", "example/seeker_form.txt");
+	create_form_copy("example/Applicants", "example/seeker_form.txt");
 	printf("Opening\n");
-	create_form("example/Job Openings", "example/opening_form.txt");
+	create_form_copy("example/Job Openings", "example/opening_form.txt");
 }
 
 // void main() {
