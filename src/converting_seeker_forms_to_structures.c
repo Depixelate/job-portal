@@ -50,10 +50,9 @@ void form_to_seeker(DictStrQ *form, Seeker *seeker) {
         strcpy(seeker->certs.certs[i],q->response.keys[i]);
     }
     dict_str_q_get(form,"9.",&q);
-    seeker->years_exp.len=q->response.len;
+    dict_str_int_init(&seeker->years_exp);
     for(int i=0;i<q->response.len;i++){
-        strcpy(seeker->years_exp.keys[i],q->response.keys[i]);
-        seeker->years_exp.values[i]=atoi(q->response.values[i]);
+        dict_str_int_add(&seeker->years_exp, q->response.keys[i], atoi(q->response.values[i]));
     }
     dict_str_q_get(form,"10.1.1.",&q);
     strcpy(seeker->proj_details[0].title,q->response.keys[0]);
@@ -139,45 +138,45 @@ void form_to_seeker(DictStrQ *form, Seeker *seeker) {
         seeker->desireable_cons.max_hours.work_hours=atoi(q->response.keys[1]);
     }
 
-    dict_str_q_get(form,"12.1.",&q);
-    score = atoi(q->response.values[0]);
-    seeker->desireable_cons.titles.score=score;
-    if (score!=0){   
-        for(int i = 1; i < q->response.len; i++) {
-            strcpy(seeker->desireable_cons.titles.titles.titles[i-1],q->response.keys[i]);
-        }
-        seeker->desireable_cons.titles.titles.len = q->response.len-1;
-    }
+    // dict_str_q_get(form,"12.1.",&q);
+    // score = atoi(q->response.values[0]);
+    // seeker->desireable_cons.titles.score=score;
+    // if (score!=0){   
+    //     for(int i = 1; i < q->response.len; i++) {
+    //         strcpy(seeker->desireable_cons.titles.titles.titles[i-1],q->response.keys[i]);
+    //     }
+    //     seeker->desireable_cons.titles.titles.len = q->response.len-1;
+    // }
 
-    dict_str_q_get(form,"12.2.",&q);
+    // dict_str_q_get(form,"12.2.",&q);
 
-    score = atoi(q->response.values[0]);
-    seeker->desireable_cons.min_sal.score=score;
-    if (score!=0){
-        seeker->desireable_cons.min_sal.min_sal=atoi(q->response.keys[1]);
-    }
-    dict_str_q_get(form,"12.3.",&q);
-    score = atoi(q->response.values[0]);
-    seeker->desireable_cons.shift.score=score;
-    if (score!=0){
-            seeker->desireable_cons.shift.shift=q->response.keys[1][0];
-    }
-    dict_str_q_get(form,"12.4.",&q);
-    score = atoi(q->response.values[0]);
-    seeker->desireable_cons.prefferred_location.score=score;
-    if (score!=0){
-        for(int i=1;i<q->response.len;i++){
-            strcpy(seeker->desireable_cons.prefferred_location.locs.loc[i-1],q->response.keys[i]);
-        }
-        seeker->desireable_cons.prefferred_location.locs.len = q->response.len-1;
-    }
+    // score = atoi(q->response.values[0]);
+    // seeker->desireable_cons.min_sal.score=score;
+    // if (score!=0){
+    //     seeker->desireable_cons.min_sal.min_sal=atoi(q->response.keys[1]);
+    // }
+    // dict_str_q_get(form,"12.3.",&q);
+    // score = atoi(q->response.values[0]);
+    // seeker->desireable_cons.shift.score=score;
+    // if (score!=0){
+    //         seeker->desireable_cons.shift.shift=q->response.keys[1][0];
+    // }
+    // dict_str_q_get(form,"12.4.",&q);
+    // score = atoi(q->response.values[0]);
+    // seeker->desireable_cons.prefferred_location.score=score;
+    // if (score!=0){
+    //     for(int i=1;i<q->response.len;i++){
+    //         strcpy(seeker->desireable_cons.prefferred_location.locs.loc[i-1],q->response.keys[i]);
+    //     }
+    //     seeker->desireable_cons.prefferred_location.locs.len = q->response.len-1;
+    // }
     
-    dict_str_q_get(form,"12.5.",&q);
-    score = atoi(q->response.values[0]);
-    seeker->desireable_cons.max_hours.score=score;
-    if (score!=0){
-        seeker->desireable_cons.max_hours.work_hours=atoi(q->response.keys[1]);
-    }
+    // dict_str_q_get(form,"12.5.",&q);
+    // score = atoi(q->response.values[0]);
+    // seeker->desireable_cons.max_hours.score=score;
+    // if (score!=0){
+    //     seeker->desireable_cons.max_hours.work_hours=atoi(q->response.keys[1]);
+    // }
 
     dict_str_q_get(form,"13.1.",&q);
     score = atoi(q->response.values[0]);
