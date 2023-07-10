@@ -16,12 +16,12 @@ Score: 25
 Score: 0
 
 8.2.2.	Fields in which the applicant at a minimum has to possess a master's degree:
-Score: 0
+CSC
+IT
+Score: 100
 	
 8.2.3.	Fields in which the applicant at a minimum has to possess a PHD:
 Score: 100
-CSC
-IT
 DS
 
 8.2.4.	Fields in which the applicant at a minimum has to possess a Post Doctorate:
@@ -61,13 +61,13 @@ Score: 0
 
 9.2.2.	Fields in which the applicant at a minimum has to possess a master’s degree:
 Score: 100
-
 CSC
 IT
+
 	
 9.2.3.	Fields in which the applicant at a minimum has to possess a PHD:
-Score: 120 
-DS
+Score: 0 
+
 
 9.2.4.	Fields in which the applicant at a minimum has to possess a Post Doctorate:
 Score: 0
