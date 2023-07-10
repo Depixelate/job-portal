@@ -1,9 +1,13 @@
 #include <stdlib.h>
 #include "user_data.c"
 #include "form_types.c"
+#include "handle_forms.c"
+#include "parse_form.c"
 
 void form_to_opening(DictStrQ *form, Opening *opening) {
     Question *q;
+    dict_str_q_get(form, "0.", &q);
+    strcpy(opening->path, q->response.keys[0]);
     dict_str_q_get(form, "1.", &q);
     char *name = q->response.keys[0];
     strcpy(opening->employer_name, name);
@@ -177,6 +181,8 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
 
 void form_to_seeker(DictStrQ *form, Seeker *seeker) {
     Question *q;
+    dict_str_q_get(form, "0.", &q);
+    strcpy(seeker->path, q->response.keys[0]);
     dict_str_q_get(form, "1.", &q);
     DictStrStr *r = &q->response;
     char *name = r->keys[0];
@@ -393,10 +399,37 @@ void form_to_seeker(DictStrQ *form, Seeker *seeker) {
 }
 
 
-void form_to_seeker_test() {
+void get_form(char *path, DictStrQ *form) {
+    char lines[MAX_LINES][MAX_LENGTH];
+    int num_lines = 0;
+    read_index(path, lines, &num_lines);
+    parse_form(path, lines, num_lines, form);
+}
 
+void form_to_seeker_test() {
+    char path[100];
+	get_good_form_path("example/Applicants/index.txt", path);
+	printf("%s\n", path);
+    DictStrQ form = {0};
+    dict_str_q_init(&form);
+    get_form(path, &form);
+    dict_str_q_print(&form);
+    Seeker seeker = {0};
+    form_to_seeker(&form, &seeker);
 }
 
 void form_to_opening_test() {
+    char path[100];
+	get_good_form_path("example/Applicants/index.txt", path);
+	printf("%s\n", path);
+    DictStrQ form = {0};
+    dict_str_q_init(&form);
+    get_form(path, &form);
+    dict_str_q_print(&form);
+    Opening opening = {0};
+    form_to_opening(&form, &opening);
+}
 
+void main() {
+    form_to_seeker_test();
 }
