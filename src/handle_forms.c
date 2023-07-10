@@ -10,7 +10,11 @@ void read_index(char *file_name, char buf[][MAX_LENGTH], int *num_lines) {
     *num_lines = 0;
     
     // Open the file
-    file = fopen(file_name, "r");
+    file = NULL;
+	while(file == NULL) {
+		file = fopen(file_name, "r");
+	}
+	
 
     
     // Read lines from the file and store them in the array
@@ -118,7 +122,7 @@ void get_good_form_name_test() {
 }
 
 
-void get_good_form_name_rec(char *path, char good_form_name[]){
+void get_good_form_path(char *path, char good_form_path[]){
 	char form_names[MAX_LINES][MAX_LENGTH];
 	int num_forms;
 	read_index(path, form_names, &num_forms);
@@ -141,21 +145,25 @@ void get_good_form_name_rec(char *path, char good_form_name[]){
 			printf("Form name doesn't exist! Try again!\n");
 		}
 	}
-	strcpy(good_form_name, form_name);
+	char *last_slash = strrchr(path, '/') + 1;
+	int num_chars = last_slash - path;
+	strncpy(good_form_path, path, num_chars);
+	good_form_path[num_chars] = '\0';
+	strcat(strcat(good_form_path, form_name), ".txt");
 }
 
-void get_good_form_name_test_rec() {
+void get_good_form_path_test() {
 	char buf[100];
 	printf("Application\n");
-	get_good_form_name_rec("example/Applicants/index.txt", buf);
+	get_good_form_path("example/Applicants/index.txt", buf);
 	printf("%s\n", buf);
 	printf("Opening\n");
-	get_good_form_name_rec("example/Job Openings/index.txt", buf);
+	get_good_form_path("example/Job Openings/index.txt", buf);
 	printf("%s\n", buf);
 }
 
 // void main() {
-// 	get_good_form_name_test_rec();
+// 	get_good_form_path_test();
 // }
 
 

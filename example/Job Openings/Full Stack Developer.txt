@@ -6,8 +6,9 @@
 6.	Total Number of Working Hours: 12
 7.	Any Extra Job Information: We provide industry-leading benifits, paid leave, and insurance
 8.	Desirable Constraints(Change the importance of the constraint by changing 'Score'):
-8.1.	Maximum Age: 55
+8.1.	Maximum Age:
 Score: 100
+55
 
 8.2.	Minimum Educational Attainment(Leave Blank if no degree is required):
 
@@ -35,16 +36,16 @@ Google Front-End Developer
 
 
 8.3.2.	Equivalent Certificates for Certificate Set 2:
+Score: 120
 Google Back-End Developer
 Cloudflare Back-End Developer
-Score: 120
+
 
 
 8.3.3.	Equivalent Certificates for Certificate Set 3:
+Score: 100
 Oracle Database
 MySQL Database
-
-Score: 100
 
 8.4.	Minimum Number of Years of Experience in given technologies(The following is given as an example to illustrate the format):
 Score: 100
