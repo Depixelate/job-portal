@@ -68,13 +68,14 @@ Score: 100
 
 Senior Data Scientist
 Lead Developer
-Senior Developer
 
-12.2.	What is the minimum salary you are willing to accept(in Rs. per annum):85000
+12.2.	What is the minimum salary you are willing to accept(in Rs. per annum):
 Score: 100
+85000
 
-12.3.	Which Shifts are you willing to take(Day(D)/Night(N)/Both(B) Only):B
+12.3.	Which Shifts are you willing to take(Day(D)/Night(N)/Both(B) Only):
 Score: 100
+B
 
 12.4.	Which Locations are you willing to work at (The following given below are examples to illustrate the format):
 Score: 100
@@ -83,8 +84,9 @@ Chennai
 Trichy
 Madurai
 
-12.5.	What is the maximum number of hours you want to work:9
+12.5.	What is the maximum number of hours you want to work:
 Score: 100
+9
 
 13.	Compulsory Constraints(Change the importance of the constraint by changing 'Score'. If you don't want to apply a constraint, set 'Score
  to 0. Make sure score is always on top):
@@ -96,11 +98,13 @@ Senior Data Scientist
 Lead Developer
 Senior Developer
 
-13.2.	What is the minimum salary you are willing to accept(in Rs.):80000
+13.2.	What is the minimum salary you are willing to accept(in Rs.):
 Score: 100
+80000
 
-13.3.	Which Shifts are you willing to take(Day(D)/Night(N)/Both(B) Only):B
+13.3.	Which Shifts are you willing to take(Day(D)/Night(N)/Both(B) Only):
 Score: 100
+B
 
 13.4.	Which Locations are you willing to work at (The following given below are examples to illustrate the format):
 Score: 100
@@ -110,7 +114,8 @@ Trichy
 Madurai
 Delhi
 
-13.5.	What is the maximum number of hours you want to work:9
+13.5.	What is the maximum number of hours you want to work:
 Score: 100
+9
 
 14.	The data given in this form is True to the best of my knowledge (Y/N Only):  Y

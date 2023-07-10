@@ -10,7 +10,11 @@ void read_index(char *file_name, char buf[][MAX_LENGTH], int *num_lines) {
     *num_lines = 0;
     
     // Open the file
-    file = fopen(file_name, "r");
+    file = NULL;
+	while(file == NULL) {
+		file = fopen(file_name, "r");
+	}
+	
 
     
     // Read lines from the file and store them in the array

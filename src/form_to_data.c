@@ -77,7 +77,7 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
     
     for(int h = 1; h <= 3; h++) {
         char q_num[MAX_QNO_CHARS];
-        snprintf(q_num, MAX_QNO_CHARS, "8.3.%d", h);
+        snprintf(q_num, MAX_QNO_CHARS, "8.3.%d.", h);
         dict_str_q_get(form, q_num, &q);
         score = atoi(q->response.values[0]);
         opening->desireable_cons.cert_lists.cert_lists[h-1].score = score;
@@ -150,7 +150,7 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
     
     for(int j = 1; j <= 3; j++) {
         char q_num[MAX_QNO_CHARS];
-        snprintf(q_num, MAX_QNO_CHARS, "9.3.%d", j);
+        snprintf(q_num, MAX_QNO_CHARS, "9.3.%d.", j);
         dict_str_q_get(form, q_num, &q);
         score = atoi(q->response.values[0]);
         opening->compulsory_cons.cert_lists.cert_lists[j-1].score = score;
@@ -241,11 +241,11 @@ void form_to_seeker(DictStrQ *form, Seeker *seeker) {
     strcpy(seeker->proj_details[0].address,q->response.keys[0]);
     dict_str_q_get(form,"10.1.4.",&q);
     seeker->proj_details[0].salary = atoi(q->response.keys[0]);
-    dict_str_q_get(form,"10.1.5",&q);
+    dict_str_q_get(form,"10.1.5.",&q);
     strcpy(seeker->proj_details[0].start_date,q->response.keys[0]);
     dict_str_q_get(form,"10.1.6.",&q);
     strcpy(seeker->proj_details[0].end_date,q->response.keys[0]);
-    dict_str_q_get(form,"10.1.7",&q);
+    dict_str_q_get(form,"10.1.7.",&q);
     strcpy(seeker->proj_details[0].other_details,q->response.keys[0]);
     dict_str_q_get(form,"10.2.1.",&q);
     strcpy(seeker->proj_details[1].title,q->response.keys[0]);
@@ -255,11 +255,11 @@ void form_to_seeker(DictStrQ *form, Seeker *seeker) {
     strcpy(seeker->proj_details[1].address,q->response.keys[0]);
     dict_str_q_get(form,"10.2.4.",&q);
     seeker->proj_details[1].salary = atoi(q->response.keys[0]);
-    dict_str_q_get(form,"10.2.5",&q);
+    dict_str_q_get(form,"10.2.5.",&q);
     strcpy(seeker->proj_details[1].start_date,q->response.keys[0]);
     dict_str_q_get(form,"10.2.6.",&q);
     strcpy(seeker->proj_details[1].end_date,q->response.keys[0]);
-    dict_str_q_get(form,"10.2.7",&q);
+    dict_str_q_get(form,"10.2.7.",&q);
     strcpy(seeker->proj_details[1].other_details,q->response.keys[0]);
     dict_str_q_get(form,"10.3.1.",&q);
     strcpy(seeker->proj_details[2].title,q->response.keys[0]);
@@ -269,11 +269,11 @@ void form_to_seeker(DictStrQ *form, Seeker *seeker) {
     strcpy(seeker->proj_details[2].address,q->response.keys[0]);
     dict_str_q_get(form,"10.3.4.",&q);
     seeker->proj_details[2].salary = atoi(q->response.keys[0]);
-    dict_str_q_get(form,"10.3.5",&q);
+    dict_str_q_get(form,"10.3.5.",&q);
     strcpy(seeker->proj_details[2].start_date,q->response.keys[0]);
     dict_str_q_get(form,"10.3.6.",&q);
     strcpy(seeker->proj_details[2].end_date,q->response.keys[0]);
-    dict_str_q_get(form,"10.3.7",&q);
+    dict_str_q_get(form,"10.3.7.",&q);
     strcpy(seeker->proj_details[2].other_details,q->response.keys[0]);
     dict_str_q_get(form,"11.",&q);
     strcpy(seeker->extra_info,q->response.keys[0]);
@@ -420,7 +420,7 @@ void form_to_seeker_test() {
 
 void form_to_opening_test() {
     char path[100];
-	get_good_form_path("example/Applicants/index.txt", path);
+	get_good_form_path("example/Job Openings/index.txt", path);
 	printf("%s\n", path);
     DictStrQ form = {0};
     dict_str_q_init(&form);
@@ -431,5 +431,5 @@ void form_to_opening_test() {
 }
 
 void main() {
-    form_to_seeker_test();
+    form_to_opening_test();
 }
