@@ -1,3 +1,4 @@
+#pragma once
 #define BUF_SIZE 4096
 #include <stdio.h>
 

@@ -1,3 +1,4 @@
+#pragma once
 #include <stdlib.h>
 #include "user_data.c"
 #include "form_types.c"
@@ -398,14 +399,6 @@ void form_to_seeker(DictStrQ *form, Seeker *seeker) {
     }
 }
 
-
-void get_form(char *path, DictStrQ *form) {
-    char lines[MAX_LINES][MAX_LENGTH];
-    int num_lines = 0;
-    read_index(path, lines, &num_lines);
-    parse_form(path, lines, num_lines, form);
-}
-
 void form_to_seeker_test() {
     char path[100];
 	get_good_form_path("example/Applicants/index.txt", path);
@@ -429,6 +422,8 @@ void form_to_opening_test() {
     Opening opening = {0};
     form_to_opening(&form, &opening);
 }
+
+
 
 void main() {
     form_to_opening_test();
