@@ -1,13 +1,15 @@
 #pragma once
-#include <stdio.h>
-#include <stdbool.h>
-#include <stdlib.h>
-#include "dict.c"
-#include "user_data.c"
-#include "string_utils.c"
 
 # define MAX_OPENINGS 100
 # define MAX_SEEKERS 100
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include "handle_rank.c"
+#include "dict.c"
+#include "user_data.c"
+#include "string_utils.c"
 
 typedef struct {
     float rec_pct[MAX_OPENINGS];
@@ -84,14 +86,14 @@ bool check_compulsory_constraints(Seeker *seeker, Opening *opening) {
         }
     }
 
-    EqCerts *lists = &opn_cons->cert_lists.cert_lists;
+    EqCerts *lists = opn_cons->cert_lists.cert_lists;
     Certs *certs = &seeker->certs;
     for(int i = 0; i < NUM_CERT_LISTS; i++) {
         if(lists[i].score == 0) continue;
         Certs* list = &lists[i].certs;
         bool has_one = false;
         for(int j = 0; j < list->len; j++) {
-            if(contains(certs->certs[i], LEN(certs->certs[i]), certs->len, list->certs[j])) {
+            if(contains(certs->certs[0], LEN(certs->certs[0]), certs->len, list->certs[j])) {
                 has_one = true;
             }
         }
@@ -200,14 +202,14 @@ float score_seeker(Seeker *seeker, EmpCons *cons, float *max_score) {
         *max_score += min_lvls[i]->score;
     }
 
-    EqCerts *lists = &opn_cons->cert_lists.cert_lists;
+    EqCerts *lists = opn_cons->cert_lists.cert_lists;
     Certs *certs = &seeker->certs;
     for(int i = 0; i < NUM_CERT_LISTS; i++) {
         if(lists[i].score == 0) continue;
         Certs* list = &lists[i].certs;
         bool has_one = false;
         for(int j = 0; j < list->len; j++) {
-            if(contains(certs->certs[i], LEN(certs->certs[i]), certs->len, list->certs[j])) {
+            if(contains(certs->certs[0], LEN(certs->certs[0]), certs->len, list->certs[j])) {
                 has_one = true;
             }
         }
@@ -249,14 +251,45 @@ void filter_openings(Seeker *seeker, Opening openings[], int num_openings, Ranke
     }
 }
 
+void get_seeker_and_openings(char *seeker_path, Seeker *seeker, Opening *openings, int *len);
+
+void test_filter_openings() {
+    Seeker seeker = {0};
+    Opening openings[MAX_OPENINGS]  = {0};
+    int len = 0;
+    get_seeker_and_openings("example/Applicants/Vignesh RM.txt", &seeker, openings, &len);
+    RankedOpenings ranks = {0};
+    filter_openings(&seeker, openings, len, &ranks);
+}
+
+// void main() {
+//     test_filter_openings();
+// }
+
 void filter_seekers(Opening *opening, Seeker seekers[], int num_seekers, RankedSeekers *ranks) {
     for(int i = 0; i < num_seekers; i++) {
-        if(check_compulsory_constraints(opening, &seekers[i])) {
+        if(check_compulsory_constraints(&seekers[i], opening)) {
             ranks->seekers[ranks->len] = &seekers[i];
             ranks->len += 1;
         }
     }
 }
+
+void get_opening_and_seekers(char *opening_path, Opening *opening, Seeker *seekers, int *len);
+
+void test_filter_seekers() {
+    Opening opening = {0};
+    Seeker seekers[MAX_SEEKERS]  = {0};
+    int len = 0;
+    get_opening_and_seekers("example/Job Openings/Data Scientist.txt", &opening, seekers, &len);
+    RankedSeekers ranks = {0};
+    filter_seekers(&opening, seekers, len, &ranks);
+}
+
+
+// void main() {
+//     test_filter_seekers();
+// }
 
 void rank_and_sort_openings(Seeker *seeker, RankedOpenings *ranks) {
     AppCons *cons[] = {&seeker->desireable_cons, &seeker->compulsory_cons};
@@ -286,6 +319,22 @@ void rank_and_sort_openings(Seeker *seeker, RankedOpenings *ranks) {
     }    
 }
 
+void test_rank_sort_openings() {
+    Seeker seeker = {0};
+    Opening openings[MAX_OPENINGS]  = {0};
+    int len = 0;
+    get_seeker_and_openings("example/Applicants/Skanta Samvartan.txt", &seeker, openings, &len);
+    RankedOpenings ranks = {0};
+    filter_openings(&seeker, openings, len, &ranks);
+    rank_and_sort_openings(&seeker, &ranks);
+}
+
+// void main() {
+//     test_rank_sort_openings();
+// }
+
+
+
 void rank_and_sort_seekers(Opening *opening, RankedSeekers *ranks) {   
     EmpCons *cons[] = {&opening->desireable_cons, &opening->compulsory_cons};
     for(int i = 0; i < ranks->len; i++) {
@@ -314,9 +363,23 @@ void rank_and_sort_seekers(Opening *opening, RankedSeekers *ranks) {
     }
 }
 
+void test_rank_sort_seekers() {
+    Opening opening = {0};
+    Seeker seekers[MAX_SEEKERS]  = {0};
+    int len = 0;
+    get_opening_and_seekers("example/Job Openings/Full Stack Developer.txt", &opening, seekers, &len);
+    RankedSeekers ranks = {0};
+    filter_seekers(&opening, seekers, len, &ranks);
+    rank_and_sort_seekers(&opening, &ranks);
+}
+
+// void main() {
+//     test_rank_sort_seekers();
+// }
+
 void display_openings(RankedOpenings *ranks) {
     printf("Recommendations:\n");
-    printf("No.\tEmployer\tRecommendation %\n");
+    printf("No.\tEmployer\tRecommendation Percent\n");
     for(int i = 0; i < ranks->len; i++) {
         printf("%d.\t%s\t%f\n", (i+1), ranks->openings[i]->employer_name, ranks->rec_pct[i]);
     }
@@ -325,7 +388,7 @@ void display_openings(RankedOpenings *ranks) {
 
 void display_seekers(RankedSeekers *ranks) {
     printf("Recommendations:\n");
-    printf("No.\tName\tRecommendation %\n");
+    printf("No.\tName\tRecommendation Percent\n");
     for(int i = 0; i < ranks->len; i++) {
         printf("%d.\t%s\t%f\n", (i+1), ranks->seekers[i]->name, ranks->rec_pct[i]);
     }

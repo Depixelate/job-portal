@@ -4,8 +4,8 @@
 inputFile="$1"
 
 outputFile="${inputFile%.*}.out"
-compilerOptions="-lm -Wall -Wextra -pedantic -std=c99 -O0 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fsanitize=address -fsanitize=undefined -fno-sanitize-recover -fstack-protector -ggdb3"
-extraOptions="-Wshift-overflow=2 -Wduplicated-cond" # For some reason ssn gcc doesn't support these.
+compilerOptions="-lm -Wall -Wextra -pedantic -std=c99 -O0 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -D_FORTIFY_SOURCE=2 -fsanitize=undefined -fno-sanitize-recover -fstack-protector -ggdb3"
+extraOptions="-Wshift-overflow=2 -Wduplicated-cond -fsanitize=address" # For some reason ssn gcc doesn't support these.
 
 compiler="gcc"
 

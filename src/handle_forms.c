@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include "form_types.c"
 
-# define PATH_LEN 200
+# define PATH_LEN MAX_LENGTH
 
 void read_index(char *file_name, char buf[][MAX_LENGTH], int *num_lines) {
     FILE *file;

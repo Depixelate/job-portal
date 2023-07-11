@@ -1,4 +1,6 @@
 #pragma once
+#include "parse_form.c"
+#include "form_to_data.c"
 #include "handle_forms.c"
 #include "user_data.c"
 #include "rank.c"
@@ -43,11 +45,11 @@ void get_form(char *path, DictStrQ *form) {
     char lines[MAX_LINES][MAX_LENGTH];
     int num_lines = 0;
     read_index(path, lines, &num_lines);
-    DictStrQ form;
-    dict_str_q_init(&form);
-    parse_form(path, lines, num_lines, &form);
+    dict_str_q_init(form);
+    parse_form(path, lines, num_lines, form);
 }
 
+void form_to_opening(DictStrQ *form, Opening *opening);
 
 void get_opening(char *path, Opening *opening) {
     DictStrQ form;
@@ -55,6 +57,7 @@ void get_opening(char *path, Opening *opening) {
     form_to_opening(&form, opening);
 }
 
+void form_to_seeker(DictStrQ *form, Seeker *seeker);
 
 void get_seeker(char *path, Seeker *seeker) {
     DictStrQ form;
@@ -65,7 +68,7 @@ void get_seeker(char *path, Seeker *seeker) {
 void get_paths(char *index_path, char paths[MAX_OPENINGS][PATH_LEN], int *num_paths) {
     read_index(index_path, paths, num_paths);
     for(int i = 0; i < *num_paths; i++) {
-        char buf[100];
+        char buf[PATH_LEN];
         strcpy(buf, paths[i]);
         index_to_path(index_path, buf, paths[i]);
     }
@@ -73,12 +76,19 @@ void get_paths(char *index_path, char paths[MAX_OPENINGS][PATH_LEN], int *num_pa
 
 //returns single seeker referred to by path, and all openings as structs
 void get_seeker_and_openings(char *seeker_path, Seeker *seeker, Opening openings[], int *len) {
-    char form_paths[MAX_OPENINGS][PATH_LEN];
+    char form_paths[MAX_OPENINGS][PATH_LEN] = {0};
     get_paths("example/Job Openings/index.txt", form_paths, len);
     get_seeker(seeker_path, seeker);
     for(int i = 0; i < *len; i++) {
         get_opening(form_paths[i], &openings[i]);
     }
+}
+
+void test_get_seeker_and_openings() {
+    Seeker seeker = {0};
+    Opening openings[MAX_OPENINGS]  = {0};
+    int len = 0;
+    get_seeker_and_openings("example/Applicants/Vignesh RM.txt", &seeker, openings, &len);
 }
 
 void get_opening_and_seekers(char *opening_path, Opening *opening, Seeker seekers[], int *len) {
@@ -90,6 +100,19 @@ void get_opening_and_seekers(char *opening_path, Opening *opening, Seeker seeker
     }
 }
 
+void test_get_opening_and_seekers() {
+    Opening opening = {0};
+    Seeker seekers[MAX_SEEKERS] = {0};
+    int len = 0;
+    get_opening_and_seekers("example/Job Openings/Full Stack Developer.txt", &opening, seekers, &len);
+}
+
+// void main() {
+//     test_get_opening_and_seekers();
+// }
+
+void rank_job_openings(Seeker *seeker, Opening *openings, int num_openings);
+
 void handle_seekers() {
     char path[PATH_LEN];
 	get_good_form_path("example/Applicants/index.txt", path);
@@ -99,6 +122,8 @@ void handle_seekers() {
     get_seeker_and_openings(path, &seeker, openings, &len);
     rank_job_openings(&seeker, openings, len);
 }
+
+void rank_seekers(Opening *opening, Seeker *seekers, int num_seekers);
 
 void handle_openings() {
     char path[PATH_LEN];

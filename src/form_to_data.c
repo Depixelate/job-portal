@@ -1,5 +1,6 @@
 #pragma once
 #include <stdlib.h>
+#include "handle_rank.c"
 #include "user_data.c"
 #include "form_types.c"
 #include "handle_forms.c"
@@ -24,7 +25,7 @@ void form_to_opening(DictStrQ *form, Opening *opening) {
     char shift=q->response.keys[0][0];
     opening->shift = shift;
     dict_str_q_get(form, "6.", &q);
-    // opening->hours=atoi(q->response.keys[0]);
+    opening->hours=atoi(q->response.keys[0]);
     dict_str_q_get(form, "7.", &q);
     char *extra=q->response.keys[0];
     strcpy(opening->extra_info,extra);
@@ -399,6 +400,9 @@ void form_to_seeker(DictStrQ *form, Seeker *seeker) {
     }
 }
 
+void get_good_form_path(char *, char *);
+void get_form(char *path, DictStrQ *form);
+
 void form_to_seeker_test() {
     char path[100];
 	get_good_form_path("example/Applicants/index.txt", path);
@@ -425,6 +429,6 @@ void form_to_opening_test() {
 
 
 
-void main() {
-    form_to_opening_test();
-}
+// void main() {
+//     form_to_opening_test();
+// }

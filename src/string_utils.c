@@ -70,13 +70,13 @@ bool contains(char *strings, int string_length, int num_strings, char *find_stri
 }
 
 void contains_test() {
-    char strings[10][15] = {"Hi", "Hello", "What's for lunch?"};
+    char strings[10][30] = {"Hi", "Hello", "What's for lunch?"};
     printf("%d %d %d\n", LEN(strings), LEN(strings[0]), contains(strings[0], LEN(strings), LEN(strings[0]), "hii"));
 }
 
-void main() {
-    contains_test();
-}
+// void main() {
+//     contains_test();
+// }
 
 // void main() {
 //     string_utils_test();
