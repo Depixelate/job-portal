@@ -5,6 +5,8 @@
 #include <stdbool.h>
 #include "form_types.c"
 
+# define PATH_LEN MAX_LENGTH
+
 void read_index(char *file_name, char buf[][MAX_LENGTH], int *num_lines) {
     FILE *file;
     *num_lines = 0;
@@ -121,45 +123,12 @@ void get_good_form_name_test() {
 	printf("%s\n", buf);
 }
 
-
-void get_good_form_path(char *path, char good_form_path[]){
-	char form_names[MAX_LINES][MAX_LENGTH];
-	int num_forms;
-	read_index(path, form_names, &num_forms);
-	char form_name[MAX_LENGTH];
-	while (true) {
-		bool is_valid_name = false;
-		printf("Enter your form's name: ");
-		fgets(form_name, MAX_LENGTH, stdin);
-		form_name[strlen(form_name)-1] = '\0';
-				
-		for(int i = 0; i < num_forms; i++) {
-			if(strcmp(form_name, form_names[i]) == 0) {
-                is_valid_name = true;
-				break;
-			} 
-		}
-		if(is_valid_name) {
-			break;
-		} else {
-			printf("Form name doesn't exist! Try again!\n");
-		}
-	}
-	char *last_slash = strrchr(path, '/') + 1;
-	int num_chars = last_slash - path;
-	strncpy(good_form_path, path, num_chars);
-	good_form_path[num_chars] = '\0';
-	strcat(strcat(good_form_path, form_name), ".txt");
-}
-
-void get_good_form_path_test() {
-	char buf[100];
-	printf("Application\n");
-	get_good_form_path("example/Applicants/index.txt", buf);
-	printf("%s\n", buf);
-	printf("Opening\n");
-	get_good_form_path("example/Job Openings/index.txt", buf);
-	printf("%s\n", buf);
+void index_to_path(char *index_path, char *form_name, char *new_path) {
+	char *last_slash = strrchr(index_path, '/') + 1;
+	int num_chars = last_slash - index_path;
+	strncpy(new_path, index_path, num_chars);
+	new_path[num_chars] = '\0';
+	strcat(strcat(new_path, form_name), ".txt");
 }
 
 // void main() {

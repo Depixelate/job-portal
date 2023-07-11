@@ -105,9 +105,9 @@ Mode parse_question(State *s) {
 }
 
 /* takes lines of form, returns a dictionary with question numbers as keys and the questions as values */
-void parse_form(char path[100], char lines[MAX_LINES][MAX_LENGTH], int num_lines, DictStrQ *form) {
+void parse_form(char *path, char lines[MAX_LINES][MAX_LENGTH], int num_lines, DictStrQ *form) {
     dict_str_q_init(form);
-    Question path_q = {.number = "0.", .prompt = "Path", .response = {0}};
+    Question path_q = {.number = "0.", .prompt = "Path"};
     dict_str_str_init(&path_q.response);
     dict_str_str_add(&path_q.response, path, "");
     dict_str_q_add(form, "0.", &path_q);

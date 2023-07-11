@@ -2,6 +2,9 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdio.h>
+#include "string_utils.c"
+#include <stdio.h>
+
 
 #define MAX_KV_PAIRS 25
 #define MAX_KEY_LEN 100
@@ -27,7 +30,7 @@ void dict_str_int_add(DictStrInt *dict, char *key,  int value) {
 //returns true or false depending on if key present.
 bool dict_str_int_get(DictStrInt *dict, char *key, int *value) {
     for(int i = 0; i < dict->len; i++) {
-        if (strcmp(dict->keys[i], key) == 0) {
+        if (strcasecmp(dict->keys[i], key) == 0) {
             *value = dict->values[i];
             return true;
         }
@@ -89,7 +92,7 @@ void dict_str_str_next_ptrs(DictStrStr *dict, char **key, char **value) {
 //returns true or false depending on if key 
 bool dict_str_str_get(DictStrStr *dict, char *key, char **value) {
     for(int i = 0; i < dict->len; i++) {
-        if (strcmp(dict->keys[i], key) == 0) {
+        if (strcasecmp(dict->keys[i], key) == 0) {
             *value = dict->values[i];
             return true;
         }

@@ -1,5 +1,6 @@
 #pragma once
 #include "dict.c"
+#include "string_utils.c"
 
 #define MAX_QNO_CHARS 10
 #define MAX_PROMPT_CHARS 200
@@ -70,7 +71,7 @@ void dict_str_q_next_ptrs(DictStrQ *dict, char **key, Question **value) {
 //returns true or false depending on if key present
 bool dict_str_q_get(DictStrQ *dict, char *key, Question **value) {
     for(int i = 0; i < dict->len; i++) {
-        if (strcmp(dict->keys[i], key) == 0) {
+        if (strcasecmp(dict->keys[i], key) == 0) {
             *value = &dict->values[i];
             return true;
         }
