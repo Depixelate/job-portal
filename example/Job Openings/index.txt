@@ -1,2 +1,5 @@
 Data Scientist
 Full Stack Developer
+Data Analyst
+Web Developer
+Machine Learning Engineer

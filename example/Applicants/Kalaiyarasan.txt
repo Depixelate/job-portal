@@ -29,12 +29,12 @@ Cloudflare Back-End Developer
 9.	Years of experience in various Fields/Technologies(The following are examples showing the format):
 HTML: 15
 Javascript: 15
-CSS: 20
-SQL: 10
-Java: 10
-Python:15
+CSS: 4
+SQL: 5
+Java: 3
+Python:3
 R:15
-Pandas:20
+Pandas:2
 Scikit-Learn:10
 
 10.	Past Project Details/References:
