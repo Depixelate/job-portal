@@ -7,8 +7,9 @@
 7.	Any Extra Job Information: 
 8.	Desirable Constraints(Change the importance of the constraint by changing 'Score'. If you don't want to apply a constraint, set 'Score
  to 0. Make sure score is always on top):
-8.1.	Maximum Age:45
+8.1.	Maximum Age:
 Score: 100
+45
 
 8.2.	Minimum Educational Attainment:
 
