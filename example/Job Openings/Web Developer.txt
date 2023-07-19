@@ -64,8 +64,8 @@ Score: 100
 9.2.1.	Equivalent Fields in which the applicant at a minimum has to possess a bachelor's degree (The following is given as an example to illustrate the format):
 Score: 100
 
-Information Technology
-Computer Science and Engineering
+IT
+CSE
 
 9.2.2.	Equivalent Fields in which the applicant at a minimum has to possess a master’s degree:
 Score: 100
@@ -96,4 +96,4 @@ Score: 100
 HTML:3
 CSS:3
 
-10. The Data in this form is true to the best of my knowledge(Y/N): N
+10. The Data in this form is true to the best of my knowledge(Y/N): Y

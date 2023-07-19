@@ -1,7 +1,7 @@
 1.	Company Name: PayPal
 2.	Job Title:Data Analyst
 3.	Salary Offered For the Position(in Rs. per Annum): 1800000
-4.	Job Location:Chennai
+4.	Job Location:Coimbatore
 5.	Shift Basis(Day(D)/Night(N)/Both(B)):D
 6.	Total Number of Working Hours:8
 7.	Any Extra Job Information: 
@@ -15,12 +15,13 @@ Score: 100
 
 8.2.1.	Equivalent Fields in which the applicant at a minimum has to possess a bachelor's degree (The following is given as an example to illustrate the format):
 Score: 100
-
+IT
 CSE
 
 8.2.2.	Equivalent Fields in which the applicant at a minimum has to possess a master's degree:
 Score: 100
 CSE 
+IT
 
 8.2.3.	Equivalent Fields in which the applicant at a minimum has to possess a PHD:
 Score: 100
@@ -63,6 +64,7 @@ Score: 100
 Score: 100
 
 CSE
+
 
 9.2.2.	Equivalent Fields in which the applicant at a minimum has to possess a master’s degree:
 Score: 100
