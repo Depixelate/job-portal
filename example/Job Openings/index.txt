@@ -3,3 +3,5 @@ Full Stack Developer
 Data Analyst
 Web Developer
 Machine Learning Engineer
+Senior Software Engineer
+App Develpoer
