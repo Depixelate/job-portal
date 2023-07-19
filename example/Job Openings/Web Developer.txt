@@ -15,13 +15,11 @@ Score: 100
 
 8.2.1.	Equivalent Fields in which the applicant at a minimum has to possess a bachelor's degree (The following is given as an example to illustrate the format):
 Score: 100
-
 IT
 CSE
 
 8.2.2.	Equivalent Fields in which the applicant at a minimum has to possess a master's degree:
 Score: 100
-
 IT
 CSE
 
@@ -35,7 +33,6 @@ Score: 0
 
 8.3.1.	Equivalent Certificates for Certificate Set 1(The following is given as example to illustrate the format):
 Score: 100
-
 Cloudflare Back-End Developer
 IBM Full Stack Developer
 
@@ -48,7 +45,7 @@ Score: 0
 Score: 0
 
 8.4.	Minimum Number of Years of Experience in given technologies(The following is given as an example to illustrate the format):
-Score: 0
+Score: 100
 
 C: 5
 Java: 2
@@ -63,7 +60,6 @@ Score: 100
 
 9.2.1.	Equivalent Fields in which the applicant at a minimum has to possess a bachelor's degree (The following is given as an example to illustrate the format):
 Score: 100
-
 IT
 CSE
 
@@ -80,7 +76,6 @@ Score: 0
 
 9.3.1.	Equivalent Certificates for Certificate Set 1(The following is given as example to illustrate the format):
 Score: 100
-
 IBM Full Stack Developer
 
 9.3.2.	Equivalent Certificates for Certificate Set 2:
