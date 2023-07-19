@@ -20,6 +20,7 @@ computer science
 8.	Certificates Earned(The following are examples showing the format.):
 MySQL database
 Oracle Database
+IBM Full Stack Developer
 
 9.	Years of experience in various Fields/Technologies(The following are examples showing the format):
 CSS : 6

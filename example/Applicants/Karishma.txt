@@ -91,13 +91,10 @@ Score: 100
 
 12.3.	Which Shifts are you willing to take(Day(D)/Night(N)/Both(B) Only):
 Score: 100
-D
-
+N
 12.4.	Which Locations are you willing to work at (The following given below are examples to illustrate the format):
 Score: 100
-
-Chennai
-Bangalore
+Coimbatore
 
 12.5.	What is the maximum number of hours you want to work:
 Score: 100
@@ -119,17 +116,15 @@ Score: 100
 13.3.	Which Shifts are you willing to take(Day(D)/Night(N)/Both(B) Only):
 Score: 100
 
-D
+N
 
 13.4.	Which Locations are you willing to work at (The following given below are examples to illustrate the format):
 Score: 100
 
-Chennai
-Bangalore
 
 13.5.	What is the maximum number of hours you want to work:
 Score: 100
 
-8
+6
 
 14.	The data given in this form is True to the best of my knowledge (Y/N Only):  Y

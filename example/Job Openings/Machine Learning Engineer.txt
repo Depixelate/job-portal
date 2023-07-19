@@ -1,0 +1,95 @@
+1.	Company Name: Accenture
+2.	Job Title:Machine Learning Engineer
+3.	Salary Offered For the Position(in Rs. per Annum): 840000
+4.	Job Location:Chennai
+5.	Shift Basis(Day(D)/Night(N)/Both(B)):D
+6.	Total Number of Working Hours:8
+7.	Any Extra Job Information: 
+8.	Desirable Constraints(Change the importance of the constraint by changing 'Score'. If you don't want to apply a constraint, set 'Score
+ to 0. Make sure score is always on top):
+8.1.	Maximum Age:
+Score: 100
+49
+
+8.2.	Minimum Educational Attainment:
+
+8.2.1.	Equivalent Fields in which the applicant at a minimum has to possess a bachelor's degree (The following is given as an example to illustrate the format):
+Score: 100
+
+CSE
+IT 
+ECE
+
+8.2.2.	Equivalent Fields in which the applicant at a minimum has to possess a master's degree:
+Score: 100
+CSE
+IT
+ECE
+	
+8.2.3.	Equivalent Fields in which the applicant at a minimum has to possess a PHD:
+Score: 100
+
+8.2.4.	Equivalent Fields in which the applicant at a minimum has to possess a Post Doctorate:
+Score: 100
+	
+8.3.	Certificates:
+
+8.3.1.	Equivalent Certificates for Certificate Set 1(The following is given as example to illustrate the format):
+Score: 100
+IBM Machine Learning
+
+
+8.3.2.	Equivalent Certificates for Certificate Set 2:
+Score: 100
+
+
+8.3.3.	Equivalent Certificates for Certificate Set 3:
+Score: 100
+
+8.4.	Minimum Number of Years of Experience in given technologies(The following is given as an example to illustrate the format):
+Score: 100
+
+Python:7
+Pandas:3
+
+9.	Compulsory Constraints(Change the importance of the constraint by changing 'Score'. If you don't want to apply a constraint, set 'Score
+ to 0. Make sure score is always on top):
+
+9.1.	Maximum Age:
+Score: 100
+
+9.2.	Minimum Educational Attainment:
+
+9.2.1.	Equivalent Fields in which the applicant at a minimum has to possess a bachelor's degree (The following is given as an example to illustrate the format):
+Score: 100
+
+
+9.2.2.	Equivalent Fields in which the applicant at a minimum has to possess a master’s degree:
+Score: 100
+	
+9.2.3.	Equivalent Fields in which the applicant at a minimum has to possess a PHD:
+Score: 100
+
+9.2.4.	Equivalent Fields in which the applicant at a minimum has to possess a Post Doctorate:
+Score: 100
+	
+9.3.	Certificates:
+
+9.3.1.	Equivalent Certificates for Certificate Set 1(The following is given as example to illustrate the format):
+Score: 100
+
+IBM Machine Learning
+
+9.3.2.	Equivalent Certificates for Certificate Set 2:
+Score: 100
+
+9.3.3.	Equivalent Certificates for Certificate Set 3:
+Score: 100
+
+9.4.	Minimum Number of Years of Experience in given technologies(The following is given as an example to illustrate the format):
+Score: 100
+
+Python:3
+Pandas:2
+
+10. The Data in this form is true to the best of my knowledge(Y/N): N

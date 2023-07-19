@@ -20,6 +20,8 @@
 IBM Data Science Professional
 Oracle Database
 Cloudflare Back-End Developer
+IBM Full Stack Developer
+Dataquest
 
 9.	Years of experience in various Fields/Technologies(The following are examples showing the format):
 Python:10
@@ -90,6 +92,7 @@ Score: 100
 Chennai
 Trichy
 Madurai
+Bangalore
 
 12.5.	What is the maximum number of hours you want to work:
 Score: 100
