@@ -39,11 +39,11 @@ Dataquest
 
 
 8.3.2.	Equivalent Certificates for Certificate Set 2:
-Score: 100
+Score: 0
 
 
 8.3.3.	Equivalent Certificates for Certificate Set 3:
-Score: 100
+Score: 0
 
 8.4.	Minimum Number of Years of Experience in given technologies(The following is given as an example to illustrate the format):
 Score: 100
@@ -53,8 +53,9 @@ Java: 2
 9.	Compulsory Constraints(Change the importance of the constraint by changing 'Score'. If you don't want to apply a constraint, set 'Score
  to 0. Make sure score is always on top):
 
-9.1.	Maximum Age:50
+9.1.	Maximum Age:
 Score: 100
+50
 
 9.2.	Minimum Educational Attainment:
 
@@ -64,13 +65,13 @@ CSE
 
 
 9.2.2.	Equivalent Fields in which the applicant at a minimum has to possess a master’s degree:
-Score: 100
+Score: 0
 	
 9.2.3.	Equivalent Fields in which the applicant at a minimum has to possess a PHD:
-Score: 100
+Score: 0
 
 9.2.4.	Equivalent Fields in which the applicant at a minimum has to possess a Post Doctorate:
-Score: 100
+Score: 0
 	
 9.3.	Certificates:
 
@@ -79,13 +80,13 @@ Score: 100
 Dataquest
 
 9.3.2.	Equivalent Certificates for Certificate Set 2:
-Score: 100
+Score: 0
 
 9.3.3.	Equivalent Certificates for Certificate Set 3:
-Score: 100
+Score: 0
 
 9.4.	Minimum Number of Years of Experience in given technologies(The following is given as an example to illustrate the format):
-Score: 100
+Score: 0
 Python:3
 
 10. The Data in this form is true to the best of my knowledge(Y/N): Y

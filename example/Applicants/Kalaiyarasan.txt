@@ -11,7 +11,7 @@
 CSE
 
 
-7.2.	Equivalent Fields where your highest level of education is a Master's degree:
+7.2.	Equivalent Fields where your highest level of education is a Master's degree:CSE
 
 
 7.3.	Equivalent Fields where your highest level of education is a PHD:
@@ -101,7 +101,7 @@ Data Analyst
 
 13.2.	What is the minimum salary you are willing to accept(in Rs.):
 Score: 100
-1800000
+50000
 
 13.3.	Which Shifts are you willing to take(Day(D)/Night(N)/Both(B) Only):
 Score: 100
