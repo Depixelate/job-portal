@@ -78,7 +78,7 @@ Score: 0
 Score: 100
 IBM Machine Learning
 
-9.3.2.	Equivalent Certificates for Certificate Set 2:
+9.3.2.	Equivalent Certificates for Certificate Set 2: 
 Score: 0
 
 9.3.3.	Equivalent Certificates for Certificate Set 3:
