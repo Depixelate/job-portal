@@ -33,7 +33,6 @@ Score: 100
 
 8.3.1.	Equivalent Certificates for Certificate Set 1(The following is given as example to illustrate the format):
 Score: 100
-
 Coursera Data Science
 EdX Data Science
 Dataquest
@@ -48,7 +47,6 @@ Score: 100
 
 8.4.	Minimum Number of Years of Experience in given technologies(The following is given as an example to illustrate the format):
 Score: 100
-
 Python: 5
 Java: 2
 
@@ -62,7 +60,6 @@ Score: 100
 
 9.2.1.	Equivalent Fields in which the applicant at a minimum has to possess a bachelor's degree (The following is given as an example to illustrate the format):
 Score: 100
-
 CSE
 
 
@@ -79,7 +76,6 @@ Score: 100
 
 9.3.1.	Equivalent Certificates for Certificate Set 1(The following is given as example to illustrate the format):
 Score: 100
-
 Dataquest
 
 9.3.2.	Equivalent Certificates for Certificate Set 2:
@@ -90,7 +86,6 @@ Score: 100
 
 9.4.	Minimum Number of Years of Experience in given technologies(The following is given as an example to illustrate the format):
 Score: 100
-
 Python:3
 
 10. The Data in this form is true to the best of my knowledge(Y/N): Y
