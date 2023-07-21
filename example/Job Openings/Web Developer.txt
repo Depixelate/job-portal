@@ -55,6 +55,7 @@ Java: 2
 
 9.1.	Maximum Age:
 Score: 100
+50
 
 9.2.	Minimum Educational Attainment:
 
