@@ -118,11 +118,11 @@ bool check_compulsory_constraints(Seeker *seeker, Opening *opening) {
     return true;
 }
 
-float calc_score_quant(int lower, int higher, int base) {
+float calc_score_quant(float lower, float higher, float base) {
     if(base == 0) return 0;
     float score = 0;
     if( higher > lower) {
-        score = (float)base*(higher/lower); 
+        score = base*(higher/lower); 
     } 
     if( higher > 2*lower) {
         score = 2*base;
@@ -151,7 +151,7 @@ float score_opening(Opening *opening, AppCons *cons, float *max_score) {
     if(shift->score != 0 && (shift->shift != 'B' || shift->shift == opening->shift)) { // if 'B', means seeker will be fine with anything, if not then make sure shifts match
         score += shift->score;
     }
-    *max_score += min_sal->score;
+    *max_score += shift->score;
 
     LocCons *loc = &skr_cons->prefferred_location;
 
@@ -163,7 +163,7 @@ float score_opening(Opening *opening, AppCons *cons, float *max_score) {
     MaxHours *hours = &skr_cons->max_hours;
 
     score += calc_score_quant(opening->hours, hours->work_hours, hours->score);
-    *max_score+=hours->score;
+    *max_score+=2*hours->score;
     
     return score;
 }
